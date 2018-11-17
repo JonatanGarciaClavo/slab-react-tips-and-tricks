@@ -22,10 +22,19 @@ slab-react-tips-and-tricks/
     index.html
     favicon.ico
   src/
+    cases/
+      1/
+        example.js
+        exercise.js
+        solution.js
+      2/
+        example.js
+        exercise.js
+        solution.js
+      .
+      .
+      .
     components/
-    examples/
-    exercises/
-    solutions/
     theme/
     utils/
     App.js
@@ -33,13 +42,11 @@ slab-react-tips-and-tricks/
     logo.svg
 ```
 
-`components` is where we put all components that could be used in different examples/exercises
+`cases` is where we put all our topic cases, inside of this folder will be number of topic and inside of that we will find `example.js`, `exercise.js` and `solution.js`
 
-`examples` is where we put all examples about different topics of this workshop
+`components` this folder contains all components builded for different cases
 
-`exercises` here per topic we will have at least one exercise to test you if you understood concepts of example
-
-`solutions` same as before but with solution of the exercise
+`utils` this folder contains helpers like create an array of characters.
 
 ## Available Scripts
 

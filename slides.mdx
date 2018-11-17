@@ -1,0 +1,103 @@
+export { default as theme } from './slides-theme';
+import { Appear } from 'mdx-deck'
+import { CodeSurfer } from "mdx-deck-code-surfer";
+import vsDark from "prism-react-renderer/themes/vsDark";
+
+<img src="https://www.sytac.io/wp-content/uploads/2017/11/logo.svg"/>
+
+# React tips and tricks
+---
+# What this talk about?
+
+> We want to show you a few tips, tricks, patterns, etc. that will help you in your day work
+---
+# Are you ready?
+
+<div style={{ marginTop: 80 }}>
+  <img src="https://media.giphy.com/media/A7BrncpC2Z8Ws/giphy.gif" />
+</div>
+---
+# Keys
+
+<div style={{ marginTop: 80 }}>
+  <img src='https://media.giphy.com/media/OTnDHCCFNZHwc/giphy.gif' />
+</div>
+
+---
+## Why keys in React are so important?
+
+<ul style={{ marginTop: 100, textAlign: 'left' }}>
+  <Appear>
+    <li>Help reconciler algorithm</li>
+    <li>Identify which items have changed, are added, or are removed.</li>
+    <li>Should be unique among their siblings</li>
+  </Appear>
+</ul>
+---
+<CodeSurfer
+  title="Example 1"
+  code={require("!raw-loader!./src/cases/1/example.js")}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    {},
+    { range: [6, 8], notes: "state" },
+    { range: [16, 34], notes: "render" },
+    { tokens: { 30: [4, 5, 6, 7 , 8,] }, notes: "Button handler" },
+    { range: [10, 14], notes: "Add a new list item to the state" },
+  ]}
+/>
+---
+# Demo Example 1
+---
+# How to run it?
+
+* `git clone https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git`
+* `cd slab-react-tips-and-tricks`
+* `npm install` or `yarn install`
+* `npm run start` or `yarn start`
+
+---
+## Exercise 1
+
+1. 🔎 Check and analyze code
+2. 👀 Check when click in both buttons how DOM it is updated
+3. ❌ Detect why when click first bottom all our list items get updated
+4. ✅ Fix problem and check again that DOM updates are right
+5. ❓ Why it was working for one button and it wasn't for the other?
+---
+# HOCs
+
+<div style={{ marginTop: 80 }}>
+  <img src='https://media.giphy.com/media/7XjITjlQqA5he/giphy.gif' />
+</div>
+---
+## What the hell are HOCs?
+
+<ul style={{ marginTop: 100, textAlign: 'left' }}>
+  <Appear>
+    <li>It is a function that takes a component and returns a new component</li>
+    <li>Principal use is for reusing component logic</li>
+  </Appear>
+</ul>
+---
+## HOCs tips
+
+<ul style={{ marginTop: 100, textAlign: 'left' }}>
+  <Appear>
+    <li><b>Don’t Mutate</b> the Original Component. Use Composition</li>
+    <li><b>Pass Unrelated Props</b> Through to the Wrapped Component</li>
+    <li><b>Maximizing Composability</b> aka use extra params if you need it</li>
+    <li><b>Don’t Use</b> HOCs <b>inside the render Method</b></li>
+    <li><b>Refs Aren’t Passed Through</b>(use React.forwardRef)</li>
+  </Appear>
+</ul>
+---
+# Demo Example 2
+---
+## Exercise 2
+
+What we try to accomplish in this exercise it is build 2 HOC that help us with repetitive behavior of our components. We need a component that will display a list of characters and a button that will handle when display or not title in our list
+---
+# The end

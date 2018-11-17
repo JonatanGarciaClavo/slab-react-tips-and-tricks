@@ -63,7 +63,6 @@ You will also see any lint errors in the console.
 
 You could use yarn too if you prefer `yarn start`
 
-
 ### `npm run slides`
 
 Runs the slides presentation it should open automatically a new tab in your browser if it isn't then open [http://127.0.0.1:8080](http://127.0.0.1:8080) to view.

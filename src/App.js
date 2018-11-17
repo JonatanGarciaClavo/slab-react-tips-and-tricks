@@ -6,10 +6,41 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import { theme, GlobalStyles } from './theme/globalStyles';
 import Header from './components/Header';
+import { NUM_EXERCISES } from './constans';
+
 const Home = React.lazy(() => import('./components/Home'));
-const Example1 = React.lazy(() => import('./examples/1'));
-const Exercise1 = React.lazy(() => import('./exercises/1'));
-const Solution1 = React.lazy(() => import('./solutions/1'));
+
+function getExerciseComponents() {
+  const components = {};
+  for (let index = 1; index <= NUM_EXERCISES; index++) {
+    components[index] = {
+      example: React.lazy(() => import(`./examples/${index}`)),
+      exercise: React.lazy(() => import(`./exercises/${index}`)),
+      solution: React.lazy(() => import(`./solutions/${index}`)),
+    };
+  }
+  return components;
+}
+
+function getExerciseRoutes() {
+  const exerciseComponents = getExerciseComponents();
+  const routes = [];
+  for (let index = 1; index <= NUM_EXERCISES; index++) {
+    const Example = exerciseComponents[index].example;
+    routes.push(
+      <Route key={`/example/${index}`} path={`/example/${index}`} render={() => <Example />} />,
+    );
+    const Exercise = exerciseComponents[index].exercise;
+    routes.push(
+      <Route key={`/exercise/${index}`} path={`/exercise/${index}`} render={() => <Exercise />} />,
+    );
+    const Solution = exerciseComponents[index].solution;
+    routes.push(
+      <Route key={`/solution/${index}`} path={`/solution/${index}`} render={() => <Solution />} />,
+    );
+  }
+  return routes;
+}
 
 class App extends Component {
   render() {
@@ -23,9 +54,7 @@ class App extends Component {
                 <Header />
                 <Box width={1} my={20}>
                   <Route exact path="/" render={() => <Home />} />
-                  <Route path="/example/1" render={() => <Example1 />} />
-                  <Route path="/exercise/1" render={() => <Exercise1 />} />
-                  <Route path="/solution/1" render={() => <Solution1 />} />
+                  {getExerciseRoutes()}
                 </Box>
               </Card>
             </Flex>

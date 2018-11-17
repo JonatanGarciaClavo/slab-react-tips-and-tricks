@@ -1,21 +1,30 @@
 import React from 'react';
 import { Box, Text } from 'rebass';
 import { Link } from 'react-router-dom';
+import { NUM_EXERCISES } from '../constans';
+
+function getExerciseList() {
+  const list = [];
+  for (let index = 1; index <= NUM_EXERCISES; index++) {
+    list.push(
+      <li key={index}>
+        <Link to={`/example/${index}`}>
+          <Text>{`Example ${index}`}</Text>
+        </Link>
+        <Link to={`/exercise/${index}`}>
+          <Text>{`Exercise ${index}`}</Text>
+        </Link>
+        <Link to={`/solution/${index}`}>
+          <Text>{`Solution exercise ${index}`}</Text>
+        </Link>
+      </li>,
+    );
+  }
+  return list;
+}
 
 export default () => (
   <Box>
-    <ul>
-      <li>
-        <Link to="/example/1">
-          <Text>Example 1</Text>
-        </Link>
-        <Link to="/exercise/1">
-          <Text>Exercise 1</Text>
-        </Link>
-        <Link to="/solution/1">
-          <Text>Solution exercise 1</Text>
-        </Link>
-      </li>
-    </ul>
+    <ul>{getExerciseList()}</ul>
   </Box>
 );

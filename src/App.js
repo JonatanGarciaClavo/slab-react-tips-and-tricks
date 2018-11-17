@@ -14,9 +14,9 @@ function getExerciseComponents() {
   const components = {};
   for (let index = 1; index <= NUM_EXERCISES; index++) {
     components[index] = {
-      example: React.lazy(() => import(`./examples/${index}`)),
-      exercise: React.lazy(() => import(`./exercises/${index}`)),
-      solution: React.lazy(() => import(`./solutions/${index}`)),
+      example: React.lazy(() => import(`./cases/${index}/example`)),
+      exercise: React.lazy(() => import(`./cases/${index}/exercise`)),
+      solution: React.lazy(() => import(`./cases/${index}/solution`)),
     };
   }
   return components;

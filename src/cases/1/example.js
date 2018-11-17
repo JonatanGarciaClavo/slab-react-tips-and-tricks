@@ -3,18 +3,16 @@ import { Flex, Box, Button, Text } from 'rebass';
 import { generateListItems, generateListItem } from '../../utils';
 
 class Example1 extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: generateListItems(),
-    };
-    this.handleButtonClick = this.handleButtonClick.bind(this);
-  }
-  handleButtonClick() {
+  state = {
+    items: generateListItems(),
+  };
+
+  handleButtonClick = () => {
     this.setState(prevState => ({
       items: [generateListItem(), ...prevState.items],
     }));
-  }
+  };
+
   render() {
     const { items } = this.state;
     return (

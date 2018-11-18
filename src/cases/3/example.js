@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flex, Box, Text } from 'rebass';
-import { generateItemsPersonas } from '../../utils';
+import { generateItemsPersonas, randomAvatarConfig } from '../../utils';
+import Avatar from 'avataaars';
 
 class Example3 extends React.PureComponent {
   state = {
@@ -9,13 +10,20 @@ class Example3 extends React.PureComponent {
 
   renderPersona({ id, text, description, reactions }) {
     return (
-      <Box width={[1]} p={2} m={1} mx={2} color="darkgray" bg="lightgray">
-        <Text fontSize={2}>{text}</Text>
-        <Text>{description}</Text>
-        {reactions.map(tag => (
-          <span>{tag}</span>
-        ))}
-      </Box>
+      <Flex width={[1]} p={2} my={1} mx={2} color="darkgray" bg="lightgray">
+        <Box p={2}>
+          <Avatar {...randomAvatarConfig()} />
+        </Box>
+        <Box>
+          <Text fontSize={2} my={1}>
+            {text}
+          </Text>
+          <Text>{description}</Text>
+          {reactions.map(tag => (
+            <span>{tag}</span>
+          ))}
+        </Box>
+      </Flex>
     );
   }
 

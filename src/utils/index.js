@@ -64,3 +64,20 @@ export function generateRandomReactions() {
   }
   return reactions;
 }
+
+export function randomAvatarConfig() {
+  return {
+    style: { width: '60px', height: '60px' },
+    avatarStyle: 'Circle',
+    topType: 'LongHairMiaWallace',
+    accessoriesType: 'Prescription02',
+    hairColor: 'BrownDark',
+    facialHairType: 'Blank',
+    clotheType: 'Hoodie',
+    clotheColor: 'PastelBlue',
+    eyeType: 'Happy',
+    eyebrowType: 'Default',
+    mouthType: 'Smile',
+    skinColor: 'Light',
+  };
+}

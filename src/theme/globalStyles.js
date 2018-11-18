@@ -3,11 +3,17 @@ import { createGlobalStyle } from 'styled-components/macro';
 export const theme = {
   colors: {
     blue: '#E9842E',
-    lightgray: '#1A2533',
+    lightgray: '#EFEFEF',
+    darkgray: '#1A2533',
   },
   fonts: {
     sans: 'Roboto, system-ui, sans-serif',
     mono: 'Menlo, monospace',
+  },
+  fontSizes: {
+    2: '1.25rem',
+    3: '1.5rem',
+    4: '1.75rem',
   },
 };
 

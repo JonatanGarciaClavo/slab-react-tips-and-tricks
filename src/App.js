@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import { theme, GlobalStyles } from './theme/globalStyles';
 import Header from './components/Header';
-import { NUM_EXERCISES } from './constans';
+import { NUM_EXERCISES } from './constants';
 
 const Home = React.lazy(() => import('./components/Home'));
 

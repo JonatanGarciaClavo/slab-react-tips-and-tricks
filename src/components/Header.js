@@ -5,7 +5,7 @@ import logo from '../logo.svg';
 
 const Hr = styled.hr`
   width: 90%;
-  border-bottom: 1px solid ${props => props.theme.colors.lightgray};
+  border-bottom: 1px solid ${props => props.theme.colors.darkgray};
 `;
 
 export default () => (

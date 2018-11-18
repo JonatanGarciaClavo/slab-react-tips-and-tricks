@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Text } from 'rebass';
 import { Link } from 'react-router-dom';
-import { NUM_EXERCISES } from '../constans';
+import { NUM_EXERCISES } from '../constants';
 
 function getExerciseList() {
   const list = [];

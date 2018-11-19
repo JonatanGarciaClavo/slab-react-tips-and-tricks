@@ -24,10 +24,14 @@ export function generateListItems(length = 5) {
   return items;
 }
 
+export function generateName() {
+  return chance.first();
+}
+
 export function generateListItem() {
   return {
     id: ID(),
-    text: chance.first(),
+    text: generateName(),
   };
 }
 
@@ -60,24 +64,11 @@ export function generateRandomReactions() {
   const numberOfReactions = Math.floor(Math.random() * 11);
   const reactions = [];
   for (let index = 1; index <= numberOfReactions; index++) {
-    reactions.push(REACTIONS[Math.floor(Math.random() * REACTIONS.length + 1)]);
+    const reaction = REACTIONS[Math.floor(Math.random() * REACTIONS.length + 1)];
+    reactions.push({
+      id: ID(),
+      reaction,
+    });
   }
   return reactions;
-}
-
-export function randomAvatarConfig() {
-  return {
-    style: { width: '60px', height: '60px' },
-    avatarStyle: 'Circle',
-    topType: 'LongHairMiaWallace',
-    accessoriesType: 'Prescription02',
-    hairColor: 'BrownDark',
-    facialHairType: 'Blank',
-    clotheType: 'Hoodie',
-    clotheColor: 'PastelBlue',
-    eyeType: 'Happy',
-    eyebrowType: 'Default',
-    mouthType: 'Smile',
-    skinColor: 'Light',
-  };
 }

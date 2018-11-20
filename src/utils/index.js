@@ -38,14 +38,11 @@ export function generateListItem() {
 // Generate a persona item with added description text and emoji reactions
 export function generateItemsPersonas(length = 100) {
   const items = generateListItems(length);
-  const extendedItems = items.map(item => {
-    return {
-      ...item,
-      description: generateLoremIpsumDescription(),
-      reactions: generateRandomReactions(),
-    };
-  });
-  return extendedItems;
+  return items.map(item => ({
+    ...item,
+    description: generateLoremIpsumDescription(),
+    reactions: generateRandomReactions(),
+  }));
 }
 
 // Generates a random lorem ipsum text

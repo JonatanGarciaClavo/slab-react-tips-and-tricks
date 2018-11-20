@@ -1,45 +1,51 @@
 import React from 'react';
-import { Box } from 'rebass';
+import { Box, Flex, Button } from 'rebass';
 import { List } from 'react-virtualized';
 import Persona from '../../components/Persona';
 import { generateItemsPersonas } from '../../utils';
+import withToggle from '../../components/withToggle';
 
-class Example3 extends React.PureComponent {
-  state = {
-    personas: generateItemsPersonas(100),
-    showVirtualized: false,
-  };
+const ListItem = ({ persona, style }) => (
+  <Box style={style} key={persona.id}>
+    <Persona {...persona} />
+  </Box>
+);
 
-  renderFlatList(personas) {
-    return <Box>{personas.map(data => this.renderPersona(data))}</Box>;
-  }
+const FlatList = ({ personas }) => (
+  <Box>
+    {personas.map(persona => (
+      <ListItem key={persona.id} persona={persona} />
+    ))}
+  </Box>
+);
 
-  renderVirtualizedList(personas) {
-    return (
-      <Box>
-        <List
-          height={500}
-          rowCount={personas.length}
-          rowHeight={100}
-          rowRenderer={({ index }) => this.renderPersona(personas[index])}
-          width={960}
-        />
-      </Box>
-    );
-  }
+const VirtualizedList = ({ personas }) => (
+  <Box>
+    <List
+      height={500}
+      rowCount={personas.length}
+      rowHeight={100}
+      rowRenderer={({ index, style }) => (
+        <ListItem key={index} persona={personas[index]} style={style} />
+      )}
+      width={960}
+    />
+  </Box>
+);
 
-  renderPersona(data) {
-    return (
-      <Box key={data.id}>
-        <Persona {...data} />
-      </Box>
-    );
-  }
+const Example3 = ({ isActive, toggle, personas }) => (
+  <Flex alignItems="center" flexDirection="column">
+    <Box mx={30}>
+      <Button onClick={toggle}>{isActive ? 'Show Flat list' : 'Show Virtualized list'}</Button>
+    </Box>
+    <Box mx={30}>
+      {isActive ? <VirtualizedList personas={personas} /> : <FlatList personas={personas} />}
+    </Box>
+  </Flex>
+);
 
-  render() {
-    const { personas, showVirtualized } = this.state;
-    return showVirtualized ? this.renderVirtualizedList(personas) : this.renderFlatList(personas);
-  }
-}
+Example3.defaultProps = {
+  personas: generateItemsPersonas(100),
+};
 
-export default Example3;
+export default withToggle(Example3, false);

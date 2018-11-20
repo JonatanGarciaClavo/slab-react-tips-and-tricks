@@ -1,16 +1,15 @@
 import React from 'react';
-import { generateName } from '../utils';
 
 // Generates a random avatar using the adorable avatars api
 // For more info about Adorable Avatars 👉 http://avatars.adorable.io/
-function generateAvatarUrl(size) {
-  return `https://api.adorable.io/avatars/${size}/${generateName()}`;
+function generateAvatarUrl(size, name) {
+  return `https://api.adorable.io/avatars/${size}/${name}`;
 }
 
-const Avatar = ({ size = 64 }) => {
+const Avatar = ({ size = 64, name }) => {
   return (
     <div>
-      <img src={generateAvatarUrl(size)} alt={'user-avatar'} style={{ borderRadius: 5 }} />
+      <img src={generateAvatarUrl(size, name)} alt={'user-avatar'} style={{ borderRadius: 5 }} />
     </div>
   );
 };

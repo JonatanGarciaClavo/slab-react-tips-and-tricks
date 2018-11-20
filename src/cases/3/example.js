@@ -24,7 +24,7 @@ const VirtualizedList = ({ personas }) => (
     <List
       height={500}
       rowCount={personas.length}
-      rowHeight={100}
+      rowHeight={105}
       rowRenderer={({ index, style }) => (
         <ListItem key={index} persona={personas[index]} style={style} />
       )}
@@ -35,10 +35,10 @@ const VirtualizedList = ({ personas }) => (
 
 const Example3 = ({ isActive, toggle, personas }) => (
   <Flex alignItems="center" flexDirection="column">
-    <Box mx={30}>
+    <Box my={3}>
       <Button onClick={toggle}>{isActive ? 'Show Flat list' : 'Show Virtualized list'}</Button>
     </Box>
-    <Box mx={30}>
+    <Box width={1}>
       {isActive ? <VirtualizedList personas={personas} /> : <FlatList personas={personas} />}
     </Box>
   </Flex>

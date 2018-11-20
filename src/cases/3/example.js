@@ -1,35 +1,44 @@
 import React from 'react';
-import { Flex, Box, Text } from 'rebass';
+import { Box } from 'rebass';
+import { List } from 'react-virtualized';
+import Persona from '../../components/Persona';
 import { generateItemsPersonas } from '../../utils';
-import Avatar from '../../components/Avatar';
 
 class Example3 extends React.PureComponent {
   state = {
-    personas: generateItemsPersonas(1000),
+    personas: generateItemsPersonas(100),
+    showVirtualized: false,
   };
 
-  renderPersona({ id, text, description, reactions }) {
+  renderFlatList(personas) {
+    return <Box>{personas.map(data => this.renderPersona(data))}</Box>;
+  }
+
+  renderVirtualizedList(personas) {
     return (
-      <Flex key={id} width={[1]} p={2} my={1} mx={2} color="darkgray" bg="lightgray">
-        <Box p={2}>
-          <Avatar />
-        </Box>
-        <Box px={2}>
-          <Text fontSize={2} my={1}>
-            {text}
-          </Text>
-          <Text>{description}</Text>
-          {reactions.map(({ id, reaction }) => (
-            <span key={id}>{reaction}</span>
-          ))}
-        </Box>
-      </Flex>
+      <Box>
+        <List
+          height={500}
+          rowCount={personas.length}
+          rowHeight={100}
+          rowRenderer={({ index }) => this.renderPersona(personas[index])}
+          width={960}
+        />
+      </Box>
+    );
+  }
+
+  renderPersona(data) {
+    return (
+      <Box key={data.id}>
+        <Persona {...data} />
+      </Box>
     );
   }
 
   render() {
-    const { personas } = this.state;
-    return <Flex flexWrap="wrap">{personas.map(persona => this.renderPersona(persona))}</Flex>;
+    const { personas, showVirtualized } = this.state;
+    return showVirtualized ? this.renderVirtualizedList(personas) : this.renderFlatList(personas);
   }
 }
 

@@ -69,3 +69,16 @@ export function generateRandomReactions() {
   }
   return reactions;
 }
+
+/**
+ *
+ * @param {Number} maximum
+ * @param {Number} minimum
+ */
+export function generateRandomNumber(maximum, minimum) {
+  return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+}
+
+export function generateRandomColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}

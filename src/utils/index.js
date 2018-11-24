@@ -41,18 +41,19 @@ export function generateItemsPersonas(length = 100) {
   return items.map(item => ({
     ...item,
     description: generateLoremIpsumDescription(),
+    longDescription: generateLoremIpsumDescription(30),
     reactions: generateRandomReactions(),
   }));
 }
 
 // Generates a random lorem ipsum text
 // For more info about the lorem-ipsum library 👉 https://github.com/knicklabs/lorem-ipsum.js
-export function generateLoremIpsumDescription() {
+export function generateLoremIpsumDescription(maxWords = 8) {
   return loremIpsum({
     count: 1,
     units: 'sentences',
     sentenceLowerBound: 4,
-    sentenceUpperBound: 8,
+    sentenceUpperBound: maxWords,
   });
 }
 

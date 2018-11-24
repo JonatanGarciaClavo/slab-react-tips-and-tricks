@@ -6,7 +6,7 @@ const ReactionList = ({ reactions }) => {
   return reactions.map(({ id, reaction }) => <span key={id}>{reaction}</span>);
 };
 
-const Persona = ({ text, description, reactions }) => {
+export const PersonaList = ({ text, description, reactions }) => {
   return (
     <Flex p={2} my={1} mx={2} color="darkgray" bg="lightgray">
       <Box p={2}>
@@ -23,4 +23,15 @@ const Persona = ({ text, description, reactions }) => {
   );
 };
 
-export default Persona;
+export const PersonaGrid = ({ text }) => {
+  return (
+    <Box width={1} color="darkgray" bg="white" p={2}>
+      <Box p={2} bg="lightgray">
+        <Avatar name={text} size={167} />
+        <Text fontSize={3} my={1} textAlign="center">
+          {text}
+        </Text>
+      </Box>
+    </Box>
+  );
+};

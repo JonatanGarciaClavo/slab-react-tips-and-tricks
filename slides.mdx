@@ -101,6 +101,65 @@ import { FullScreenCode } from 'mdx-deck/layouts'
 
 What we try to accomplish in this exercise it is build 2 HOC that help us with repetitive behavior of our components. We need a component that will display a list of characters and a button that will handle when display or not title in our list
 ---
+# Virtualize your heavy lists
+
+<div style={{ marginTop: 80 }}>
+  <img src='http://forgifs.com/gallery/d/264720-2/Old-man-smartphone-scrolling.gif' />
+</div>
+---
+## Dealing with loooooong lists?
+
+<ul style={{ marginTop: 100, textAlign: 'left' }}>
+  <Appear>
+    <li>Pagination</li>
+    <li>Infinite Scrolling</li>
+  </Appear>
+</ul>
+---
+
+## But what if that's not an option?
+
+<div style={{ marginTop: 40 }}>... or small lists but components really big.</div>
+<a 
+  style={{ marginTop: 40, display: 'block' }}
+  href="https://bvaughn.github.io/react-virtualized/#/components/List" 
+  target="_blank"
+>Virtualize your lists 👉</a>
+---
+
+## Windowing
+<div>Render only what is visible 💡</div>
+<div style={{ marginTop: 80 }}>
+  <img style={{ width: '60%' }} src='https://cdn-images-1.medium.com/max/1600/1*VuAzFDUG0MQYhGohAZqrMw.jpeg' />
+</div>
+---
+<CodeSurfer
+  title="Example 3"
+  code={require("!raw-loader!./src/cases/3/example.js")}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    {},
+    { range: [6, 8], notes: "generate list of 5000 personas" },
+    { range: [35, 37], notes: "render" },
+    { range: [21, 29], notes: "Virtualized grid component" },
+    { range: [15, 17], notes: "Cell renderer function" },
+  ]}
+/>
+---
+## Exercise 3
+
+<div style={{fontSize: '36px'}}>
+The purpose of this exercise is to implement a virtualized version for the list that we display
+<ol style={{textAlign: 'left'}}>
+<li>📥 Import the required elements from the 'react-virtualized' library</li>
+<li>🏗 Recreate the list we actually have with the new virtualized component. Special attention for the rowRenderer method</li>
+<li>☝️ Replace the list for the new one in the main component.</li>
+<li>🎖 Extra bonus points for using the previously created withToggle HOC to build a toggle system to switch between the two lists.</li>
+</ol>
+</div>
+---
 # Avoid unnecessary reconciliation
 
 <div style={{ marginTop: 80 }}>

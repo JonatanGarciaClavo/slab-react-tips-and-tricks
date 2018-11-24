@@ -1,0 +1,11 @@
+class Page extends React.Component {
+  render() {
+    const {items} = this.props;
+    const {query} = this.state;
+    const newItems = items.filter(
+      (item) => item.contains(query)
+    );
+
+    return (<List items={newItems} />)
+  }
+}

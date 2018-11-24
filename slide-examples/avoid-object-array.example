@@ -1,0 +1,24 @@
+class BadPage extends React.Component {
+  render() {
+    return (
+      <DataTable
+        pageSizes={[5, 10, 25, 50]}
+        footerInfo={{label: 'Settings'}}
+      />
+    )
+  }
+}
+
+const PAGE_SIZES = [5, 10, 25, 50]
+const FOOTER_INFO = {label: 'Settings'}
+
+class GoodPage extends React.Component {
+  render() {
+    return (
+      <DataTable
+        pageSizes={PAGE_SIZES}
+        footerInfo={FOOTER_INFO}
+      />
+    )
+  }
+}

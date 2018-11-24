@@ -2,6 +2,7 @@ export { default as theme } from './slides-theme';
 import { Appear } from 'mdx-deck'
 import { CodeSurfer } from "mdx-deck-code-surfer";
 import vsDark from "prism-react-renderer/themes/vsDark";
+import { FullScreenCode } from 'mdx-deck/layouts'
 
 <img src="https://www.sytac.io/wp-content/uploads/2017/11/logo.svg"/>
 
@@ -100,4 +101,85 @@ import vsDark from "prism-react-renderer/themes/vsDark";
 
 What we try to accomplish in this exercise it is build 2 HOC that help us with repetitive behavior of our components. We need a component that will display a list of characters and a button that will handle when display or not title in our list
 ---
+# Avoid unnecessary reconciliation
+
+<div style={{ marginTop: 80 }}>
+  <img src='https://media.giphy.com/media/TioDmIjphpJ5K/giphy.gif' />
+</div>
+---
+## Why avoid unnecessary reconciliation is so important?
+
+<ul style={{ marginTop: 100, textAlign: 'left' }}>
+  <Appear>
+    <li>Reconciliation is how we call that action that decide when and how to re render DOM</li>
+    <li>Nobody wants re render things all time</li>
+    <li>Seriously, you don't want to re render your components if their DOM nodes is huge</li>
+    <li>Because of that, lets try to help algorithm to take easy and fast decisions</li>
+  </Appear>
+</ul>
+---
+## So how we could avoid unnecesary reconciliations?
+
+<ul style={{ marginTop: 100, textAlign: 'left' }}>
+  <Appear>
+    <li>shouldComponentUpdate()</li>
+    <li>PureComponent</li>
+    <li>memo</li>
+    <li>🚨 Stateless component functions work like React.Components 🚨</li>
+  </Appear>
+</ul>
+---
+<CodeSurfer
+  title="🚫 Arrow functions"
+  code={require("!raw-loader!./slide-examples/avoid-arrow-functions.example")}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [4, 18], notes: "check props" },
+    { range: [23, 33], notes: "check props and class function" },
+  ]}
+/>
+---
+<CodeSurfer
+  title="🚫 Objects and Arrays generation in props"
+  code={require("!raw-loader!./slide-examples/avoid-object-array.example")}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 10], notes: "check props" },
+    { range: [12, 13], notes: "create a const outside of component" },
+    { range: [18, 21], notes: "use previously const as props" },
+  ]}
+/>
+---
+<CodeSurfer
+  title="🚫 Derived data in render"
+  code={require("!raw-loader!./slide-examples/derived-data.example")}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 11] },
+    { range: [5, 7], notes: "😱 we are filtering our items each render 😱" },
+  ]}
+/>
+---
+# Demo Example 4
+---
+## Example 4
+
+This exercise it is a bit different compared with other ones, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix it.
+
+🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉
+---
 # The end
+
+<div style={{ marginTop: 30 }}>
+  <img src='https://media.giphy.com/media/l2R0eYcNq9rJUsVAA/giphy.gif' />
+</div>
+
+* [https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git](https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git)
+* Jonatan García Clavo - [jonatan.garcia@sytac.io](jonatan.garcia@sytac.io)
+* Luis Sanchez Gomez - [luis.sanchez@sytac.io](luis.sanchez@sytac.io)

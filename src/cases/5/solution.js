@@ -42,6 +42,10 @@ const Exercise = ({ handleAddClick, items, totalPrice, isActive, toggle }) => (
   </Flex>
 );
 
+const Enhanced = withToggle(Exercise);
+
+Enhanced.title = 'Cart';
+
 const mapStateToProps = createStructuredSelector({
   items: makeSelectCartItems,
   totalPrice: makeSelectTotalCartPrice,
@@ -54,4 +58,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withToggle(Exercise));
+)(Enhanced);

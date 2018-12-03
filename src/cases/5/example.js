@@ -94,6 +94,8 @@ class Example5 extends React.PureComponent {
   }
 }
 
+Example5.title = 'Selectors example';
+
 const mapStateToProps = createStructuredSelector({
   sort: makeSelectSort,
   filter: makeSelectFilter,

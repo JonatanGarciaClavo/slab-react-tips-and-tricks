@@ -82,4 +82,7 @@ const Exercise2 = ({ toggle, isActive }) => (
   </Flex>
 );
 
-export default withToggle(Exercise2, true);
+const Enhanced = withToggle(Exercise2, true);
+Enhanced.title = 'Play with HoCs';
+
+export default Enhanced;

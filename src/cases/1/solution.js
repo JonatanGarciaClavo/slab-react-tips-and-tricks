@@ -60,4 +60,6 @@ class Exercise1 extends React.PureComponent {
   }
 }
 
+Exercise1.title = 'Play with keys';
+
 export default Exercise1;

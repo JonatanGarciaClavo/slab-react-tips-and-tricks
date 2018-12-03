@@ -42,4 +42,6 @@ Example3.defaultProps = {
   personas,
 };
 
+Example3.title = 'Virtualized example';
+
 export default Example3;

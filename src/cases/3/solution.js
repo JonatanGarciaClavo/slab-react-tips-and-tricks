@@ -78,4 +78,8 @@ Exercise3.defaultProps = {
 };
 
 // 👌 Imported and wrapped into the withToggle HOC
-export default withToggle(Exercise3, false);
+const Enhanced = withToggle(Exercise3, false);
+
+Enhanced.title = 'Play with Virtualized';
+
+export default Enhanced;

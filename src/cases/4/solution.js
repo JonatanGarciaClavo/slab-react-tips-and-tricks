@@ -110,4 +110,5 @@ class Exercise4 extends React.Component {
   }
 }
 
+Exercise4.title = 'Find the errors and fix it';
 export default Exercise4;

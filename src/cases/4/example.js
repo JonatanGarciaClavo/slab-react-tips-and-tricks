@@ -62,4 +62,5 @@ class Example4 extends React.Component {
   }
 }
 
+Example4.title = 'Avoid unnecessary reconciliation example';
 export default Example4;

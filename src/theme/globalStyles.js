@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components/macro';
 
-const orange = '#E9842E';
+export const orange = '#E9842E';
 
 export const theme = {
   colors: {

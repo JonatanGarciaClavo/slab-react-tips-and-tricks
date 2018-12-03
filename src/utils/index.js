@@ -83,3 +83,46 @@ export function generateRandomNumber(maximum, minimum) {
 export function generateRandomColor() {
   return '#' + Math.floor(Math.random() * 16777215).toString(16);
 }
+
+export function generateCart(length = 5) {
+  const items = Array(length);
+  for (var i = 0; i < length; i++) {
+    items[i] = generateCartItem();
+  }
+  return items;
+}
+
+export function generateCartItem() {
+  return {
+    id: ID(),
+    name: generateName(),
+    price: chance.floating({ min: 0, max: 100, fixe: 2 }),
+    quantity: chance.d10(),
+  };
+}
+
+export function isFloat(n) {
+  // eslint-disable-next-line
+  return n === +n && n !== (n | 0);
+}
+
+export function buildPriceWithCurrencySymbol(price) {
+  const isPositive = price >= 0;
+  const positivePrice = isPositive ? price : price * -1;
+  if (isFloat(price)) {
+    if (isPositive) {
+      return `€ ${positivePrice
+        .toFixed(2)
+        .toString()
+        .replace('.', ',')}`;
+    }
+    return `-€ ${positivePrice
+      .toFixed(2)
+      .toString()
+      .replace('.', ',')}`;
+  }
+  if (isPositive) {
+    return `€ ${positivePrice},-`;
+  }
+  return `-€ ${positivePrice},-`;
+}

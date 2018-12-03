@@ -1,0 +1,14 @@
+import {createSelector} from 'reselect';
+
+const getTodos = (state) => state.todos;
+const getVisibilityFilter = (state) => state.filter;
+
+const getVisibleTodos = createSelector(
+  getTodos, getVisibilityFilter,
+  (todos, filter) => {
+    // filters `todos` array by `filter` string
+  }
+);
+const mapStateToProps = (state) => ({
+  todos: getVisibleTodos(state)
+});

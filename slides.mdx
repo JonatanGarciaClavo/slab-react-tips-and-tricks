@@ -267,11 +267,78 @@ The purpose of this exercise is to implement a virtualized version for the list 
 ---
 # Demo Example 4
 ---
-## Example 4
+## Exercise 4
 
 This exercise it is a bit different compared with other ones, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix it.
 
 🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉
+---
+# Derived Redux state
+
+<div style={{ marginTop: 80 }}>
+  <img src='https://media.giphy.com/media/DIWNLjfedwPRe/giphy.gif' />
+</div>
+---
+## What derived Redux state means?
+
+Given an state we need to apply to that state all business logic needed to be displayed in our components
+
+---
+<CodeSurfer
+  title="Derived Redux state"
+  code={require("!raw-loader!./slide-examples/derived-redux.example")}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 8], notes: '🚨 Recalculating derived data can be expensive 🚨' },
+  ]}
+/>
+---
+<CodeSurfer
+  title="Derived Redux state with reselect"
+  code={require("!raw-loader!./slide-examples/reselect.example")}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 1], notes: 'import create selector from reselect' },
+    { range: [3, 4], notes: 'domain selector' },
+    { range: [6, 11], notes: 'create a selector with your business logic' },
+    { range: [12, 14], notes: 'Use a memoized selector' },
+  ]}
+/>
+---
+## When we use reselect?
+
+<ul style={{ marginTop: 100, textAlign: 'left' }}>
+  <Appear>
+    <li>When given a raw data you have to <strong>apply multiple transformations</strong></li>
+    <li>When you have to <strong>apply different kind of business logic</strong> to your state</li>
+    <li>When you <strong>can not normalize</strong> your data</li>
+  </Appear>
+</ul>
+---
+# Demo Example 5
+---
+<CodeSurfer
+  title="Selectors example"
+  code={require("!raw-loader!./src/cases/5/example.js")}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [27, 31], notes: 'state' },
+    { range: [49, 52], notes: 'domain selectors to get all our state props' },
+    { range: [54, 62], notes: 'select and apply filter and short to our list of items' },
+    { range: [99, 103], notes: 'Use al our selector' },
+  ]}
+/>
+
+---
+## Exercise 5
+
+In this exercise we will work with selectors, for that let's build a shopping cart 🙌🏼. To build this cart we will have a reducer with all our cart items, you don't need to worried about that, it is already done 😉. What you need to complete it is how to transform/normalize your cart items to be able to following some rules/use case.
 ---
 # The end
 

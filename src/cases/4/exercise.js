@@ -31,12 +31,12 @@ const ListItem = ({ item }) => (
   </Box>
 );
 
-const MemoListItem = React.memo(ListItem);
+// const MemoListItem = React.memo(ListItem);
 
 const List = ({ items }) => (
   <Box my={10}>
     {items.map(item => (
-      <MemoListItem key={item.id} item={item} />
+      <ListItem key={item.id} item={item} />
     ))}
   </Box>
 );

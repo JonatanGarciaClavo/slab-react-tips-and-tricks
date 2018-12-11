@@ -1,17 +1,21 @@
 export { default as theme } from './slides-theme';
-import { Appear } from 'mdx-deck'
-import { CodeSurfer } from "mdx-deck-code-surfer";
-import vsDark from "prism-react-renderer/themes/vsDark";
-import { FullScreenCode } from 'mdx-deck/layouts'
+import { Appear } from 'mdx-deck';
+import { CodeSurfer } from 'mdx-deck-code-surfer';
+import vsDark from 'prism-react-renderer/themes/vsDark';
+import { FullScreenCode } from 'mdx-deck/layouts';
 
-<img src="https://www.sytac.io/wp-content/uploads/2017/11/logo.svg"/>
+<img src="https://www.sytac.io/wp-content/uploads/2017/11/logo.svg" />
 
 # React tips and tricks
+
 ---
+
 # What this talk about?
 
 > We want to show you a few tips, tricks, patterns, etc. that will help you in your day work
+
 ---
+
 # Are you ready?
 
 <div style={{ marginTop: 80 }}>
@@ -21,10 +25,11 @@ import { FullScreenCode } from 'mdx-deck/layouts'
 # Keys
 
 <div style={{ marginTop: 80 }}>
-  <img src='https://media.giphy.com/media/OTnDHCCFNZHwc/giphy.gif' />
+  <img src="https://media.giphy.com/media/OTnDHCCFNZHwc/giphy.gif" />
 </div>
 
 ---
+
 ## Why keys in React are so important?
 
 <ul style={{ marginTop: 100, textAlign: 'left' }}>
@@ -54,12 +59,13 @@ import { FullScreenCode } from 'mdx-deck/layouts'
 ---
 # How to run it?
 
-* `git clone https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git`
-* `cd slab-react-tips-and-tricks`
-* `npm install` or `yarn install`
-* `npm run start` or `yarn start`
+- `git clone https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git`
+- `cd slab-react-tips-and-tricks`
+- `npm install` or `yarn install`
+- `npm run start` or `yarn start`
 
 ---
+
 ## Exercise 1
 
 1. 🔎 Check and analyze code
@@ -67,7 +73,9 @@ import { FullScreenCode } from 'mdx-deck/layouts'
 3. ❌ Detect why when click first bottom all our list items get updated
 4. ✅ Fix problem and check again that DOM updates are right
 5. ❓ Why it was working for one button and it wasn't for the other?
+
 ---
+
 # HOCs
 
 <div style={{ marginTop: 80 }}>
@@ -99,8 +107,8 @@ import { FullScreenCode } from 'mdx-deck/layouts'
 ---
 ## Exercise 2
 
-What we try to accomplish in this exercise it is build 2 HOC that help us with repetitive behavior of our components. We need a component that will display a list of characters and a button that will handle when display or not title in our list
----
+## What we try to accomplish in this exercise it is build 2 HOC that help us with repetitive behavior of our components. We need a component that will display a list of characters and a button that will handle when display or not title in our list
+
 # Virtualize your heavy lists
 
 <div style={{ marginTop: 80 }}>
@@ -128,6 +136,7 @@ What we try to accomplish in this exercise it is build 2 HOC that help us with r
 ---
 
 ## Windowing
+
 <div>Render only what is visible 💡</div>
 <div style={{ marginTop: 80 }}>
   <img style={{ width: '60%' }} src='https://cdn-images-1.medium.com/max/1600/1*VuAzFDUG0MQYhGohAZqrMw.jpeg' />
@@ -271,8 +280,8 @@ The purpose of this exercise is to implement a virtualized version for the list 
 
 This exercise it is a bit different compared with other ones, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix it.
 
-🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉
----
+## 🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉
+
 # Derived Redux state
 
 <div style={{ marginTop: 80 }}>
@@ -284,6 +293,7 @@ This exercise it is a bit different compared with other ones, in this case you n
 Given an state we need to apply to that state all business logic needed to be displayed in our components
 
 ---
+
 <CodeSurfer
   title="Derived Redux state"
   code={require("!raw-loader!./slide-examples/derived-redux.example")}
@@ -336,10 +346,11 @@ Given an state we need to apply to that state all business logic needed to be di
 />
 
 ---
+
 ## Exercise 5
 
-In this exercise we will work with selectors, for that let's build a shopping cart 🙌🏼. To build this cart we will have a reducer with all our cart items, you don't need to worried about that, it is already done 😉. What you need to complete it is how to transform/normalize your cart items to be able to following some rules/use case.
----
+## In this exercise we will work with selectors, for that let's build a shopping cart 🙌🏼. To build this cart we will have a reducer with all our cart items, you don't need to worried about that, it is already done 😉. What you need to complete it is how to transform/normalize your cart items to be able to following some rules/use case.
+
 # React Profiler
 
 <div style={{ marginTop: 80 }}>
@@ -367,9 +378,9 @@ In this exercise we will work with selectors, for that let's build a shopping ca
 # The end
 
 <div style={{ marginTop: 30 }}>
-  <img src='https://media.giphy.com/media/l2R0eYcNq9rJUsVAA/giphy.gif' />
+  <img src="https://media.giphy.com/media/l2R0eYcNq9rJUsVAA/giphy.gif" />
 </div>
 
-* [https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git](https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git)
-* Jonatan García Clavo - [jonatan.garcia@sytac.io](jonatan.garcia@sytac.io)
-* Luis Sanchez Gomez - [luis.sanchez@sytac.io](luis.sanchez@sytac.io)
+- [https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git](https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git)
+- Jonatan García Clavo - [jonatan.garcia@sytac.io](jonatan.garcia@sytac.io)
+- Luis Sanchez Gomez - [luis.sanchez@sytac.io](luis.sanchez@sytac.io)

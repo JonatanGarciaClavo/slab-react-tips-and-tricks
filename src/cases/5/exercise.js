@@ -19,18 +19,27 @@ import { addItemToCart } from '../../store/cartReducer';
 const selectCartDomain = state => state.cartReducer;
 
 // ℹ️ This selector takes all cart items that are in our state
-const makeSelectCart = createSelector(selectCartDomain, ({ cart }) => cart);
+const makeSelectCart = createSelector(
+  selectCartDomain,
+  ({ cart }) => cart,
+);
 
 // ℹ️ this selector will convert our cart item data into something that we will consume in our Cart component
 // 📝 { id: string, name: string, price: float, quantity: number } this is signature of cart item
 // 🚨 desired output should be { id: '_uqyee7d8x', name: 'Rebecca', quantity: 2, totalPrice: "€ 95,80" }
 // 👀 as you could see before total price has a special format for that you should use buildPriceWithCurrencySymbol
 //    given a float number it will returns that data according to business case
-const makeSelectCartItems = createSelector(makeSelectCart, cart => cart);
+const makeSelectCartItems = createSelector(
+  makeSelectCart,
+  cart => cart,
+);
 
 // ℹ️ This selector will calculate total price of all items in our cart
 // 👀 format should be same as other prices so remember to use buildPriceWithCurrencySymbol
-const makeSelectTotalCartPrice = createSelector(makeSelectCart, cart => 0);
+const makeSelectTotalCartPrice = createSelector(
+  makeSelectCart,
+  cart => 0,
+);
 
 const Exercise = ({ handleAddClick, items, totalPrice, isActive, toggle }) => (
   <Flex flexDirection="column" alignItems="center">

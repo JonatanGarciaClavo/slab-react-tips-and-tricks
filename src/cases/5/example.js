@@ -47,9 +47,18 @@ export const selectorsExampleReducer = (state = initialState, action) => {
   }
 };
 const selectSelectorsExampleDomain = state => state.selectorsExample;
-const makeSelectFilter = createSelector(selectSelectorsExampleDomain, ({ filter }) => filter);
-const makeSelectSort = createSelector(selectSelectorsExampleDomain, ({ sort }) => sort);
-const makeSelectItems = createSelector(selectSelectorsExampleDomain, ({ items }) => items);
+const makeSelectFilter = createSelector(
+  selectSelectorsExampleDomain,
+  ({ filter }) => filter,
+);
+const makeSelectSort = createSelector(
+  selectSelectorsExampleDomain,
+  ({ sort }) => sort,
+);
+const makeSelectItems = createSelector(
+  selectSelectorsExampleDomain,
+  ({ items }) => items,
+);
 
 const makeSelectFilterAndSortedList = createSelector(
   makeSelectItems,

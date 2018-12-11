@@ -16,23 +16,30 @@ import { buildPriceWithCurrencySymbol } from '../../utils';
 import { addItemToCart } from '../../store/cartReducer';
 
 const selectCartDomain = state => state.cartReducer;
-const makeSelectCart = createSelector(selectCartDomain, ({ cart }) => cart);
-const makeSelectCartItems = createSelector(makeSelectCart, cart =>
-  // iterate over all cart items and modify that properties that are needed
-  cart.map(({ id, name, price, quantity }) => ({
-    id,
-    name,
-    quantity,
-    // format total price according AC
-    totalPrice: buildPriceWithCurrencySymbol(price * quantity),
-  })),
+const makeSelectCart = createSelector(
+  selectCartDomain,
+  ({ cart }) => cart,
 );
-const makeSelectTotalCartPrice = createSelector(makeSelectCart, cart =>
-  // Second we apply price format function according to AC
-  buildPriceWithCurrencySymbol(
-    // First we calculate sum of all items
-    cart.reduce((acc, { quantity, price }) => (acc += quantity * price), 0),
-  ),
+const makeSelectCartItems = createSelector(
+  makeSelectCart,
+  cart =>
+    // iterate over all cart items and modify that properties that are needed
+    cart.map(({ id, name, price, quantity }) => ({
+      id,
+      name,
+      quantity,
+      // format total price according AC
+      totalPrice: buildPriceWithCurrencySymbol(price * quantity),
+    })),
+);
+const makeSelectTotalCartPrice = createSelector(
+  makeSelectCart,
+  cart =>
+    // Second we apply price format function according to AC
+    buildPriceWithCurrencySymbol(
+      // First we calculate sum of all items
+      cart.reduce((acc, { quantity, price }) => (acc += quantity * price), 0),
+    ),
 );
 
 const Exercise = ({ handleAddClick, items, totalPrice, isActive, toggle }) => (

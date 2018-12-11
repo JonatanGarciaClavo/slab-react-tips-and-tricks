@@ -41,8 +41,8 @@ class Example4 extends React.Component {
     this.setState(({ items }) => {
       const randomIndex = generateRandomNumber(items.length - 1, 0);
       return {
-        items: items.map(
-          (item, index) => (index === randomIndex ? { ...item, isActive: !item.isActive } : item),
+        items: items.map((item, index) =>
+          index === randomIndex ? { ...item, isActive: !item.isActive } : item,
         ),
       };
     });

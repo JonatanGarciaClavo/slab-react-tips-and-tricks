@@ -1,0 +1,26 @@
+import React from 'react';
+import { Button } from 'rebass';
+
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: Number(window.localStorage.getItem('count') || 0),
+    };
+  }
+  incrementCount = () =>
+    this.setState(({ count }) => ({
+      count: count + 1,
+    }));
+  componentDidUpdate(_, prevState) {
+    const { count } = this.state;
+    if (prevState.count !== count) {
+      console.log('save count');
+      window.localStorage.setItem('count', count);
+    }
+  }
+  render() {
+    const { count } = this.state;
+    return <Button onClick={this.incrementCount}>{count}</Button>;
+  }
+}

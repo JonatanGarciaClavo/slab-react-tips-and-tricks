@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { Flex, Box } from 'rebass';
 import CartIcon from './CartIcon';
 import { orange } from '../theme/globalStyles';

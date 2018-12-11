@@ -1,3 +1,3 @@
-export const NUM_EXERCISES = 6;
+export const NUM_EXERCISES = 7;
 
 export const REACTIONS = ['👍', '❤️', '😲', '😆', '😡', '👌'];

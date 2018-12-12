@@ -375,6 +375,100 @@ Given an state we need to apply to that state all business logic needed to be di
 <div style={{fontSize: 30}}>✅ The purpose of this exercise is only to use the React Profiler to compare the performance between the previously proposed exercise and the solution.</div>
 <div style={{fontSize: 30, marginTop: 20}}>🕚 Check the benchmark times of rendering to see the differences in performance.</div>
 ---
+# Hooks
+
+<div style={{ marginTop: 40 }}>
+  <img width={600} src='https://media.giphy.com/media/tYAolvs3tZIhG/giphy.gif' />
+</div>
+
+---
+# Hooks
+
+<div style={{ marginTop: 30 }}>
+  <img width={800} src='https://media.giphy.com/media/70hm1fhEG8AOQ/giphy.gif' />
+</div>
+
+---
+
+## Introducing to Hooks
+
+<ul style={{ marginTop: 100, textAlign: 'left' }}>
+  <Appear>
+    <li>Hooks are functions that let you “hook into” React state and lifecycle features from function components</li>
+    <li>This is a feature proposal aka <b>it is in alpha</b></li>
+    <li>No Breaking Changes</li>
+    <li>Completely opt-in</li>
+    <li>100% backwards-compatible</li>
+    <li>There are no plans to remove classes from React</li>
+    <li>Hooks don’t replace your knowledge of React concepts</li>
+    <li>🚨 Please, please don't refactor your current code with Hooks 🚨</li>
+  </Appear>
+</ul>
+
+---
+
+## Motivation
+
+<ul style={{ marginTop: 100, textAlign: 'left' }}>
+  <Appear>
+    <li>It’s hard to reuse stateful logic between components</li>
+    <li>Complex components become hard to understand and maintain</li>
+    <li>Classes confuse both people and machines</li>
+    <li><a target="blank" href="https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=JYWwDg9gTgLgBAJQKYEMDG8BmUIjgcilQ3wG4AoUSWOAbzgCEBXGGCAOzgF85tcCiAIxQBnEWXLk0AG1Ei4AYQhN2MJFDhIAHmvYATecnQwAdEvAckquuThw0HETChMM0ABRgcYEQEobdnYiTGDqnt5-FIFwMAAWwCImTihqcAC8AdH2yqoAXHAAckwggmEA7sD6EGUm0hBoKNIAymxQKADmSCadMACSaiDu-A4qMPj-AD4TcAAMvgA0toFcUdxLlWhEIFYwSqPpcO7-aQB8S3ZxCUlIMC0pSO7u9CPWXMcnh7TngS8w-b9wADUcAAjItom9fKsHBZ2DsACLAPQAVTAenu7gA-vM4F4kAA3O5qfxfaIOdhOOjZfY8DKXRLJNSrOzATCHPGEmD3EwAgCEaQyvxJ3zs5JEEGkXTq7SGIhQ-KQ1NU42ZgQqVRqdQazVaHS6Ihu_SQg2GOTGOKFqq4S2tdiI-jCwrJjngzzN3AO9KSXKZ3yIMCYUE4AB5mKwOHAOAppMA0ABrNK0L0bLY7PaqLgnWi_LjBgD0YbY7BOq2tXCAA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=">Babel output of class component</a></li>
+    <li><a target="blank" href="https://babeljs.io/en/repl.html#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=JYWwDg9gTgLgBAJQKYEMDGMA0cDecCuAzkgMowoxLZFICiAZvUhtcQMIoA2nARugNZwAvnHpQIIOAHIoqDFIDcAKFCRYuOACF8MGBAB2w0eMkykfQoUVKl9fPozADcNhHuUoACgCUuJXDg0A0J4AG0g92xiGFd3AF04AF4CYjIKJE8fJIA-OAA5fBAeJC8Ad2B9ABMIUoA6Tgg0LjJoFABzJFqOmABJShBPKQj9GClfAB9xuAAGb29lAKD9ELgKtFkQJBHYkaSUpA5uPjR-TN9E3OidmE9h-ABqOABGOYX9hiYMT38AuCyLvy_X7lKo1eqNZp6KDtTrRPpIAZDNwjKTYO7zH4BISYTFwcLImBxHEBDEBWQwfBQQwAHm0umcBjYnGAJ0SODWGy2MQJQmyODuQmpAHo6Xp9NllEIbNcSrUYMAYJwkHspDKoNYlEgAB5qeCVJD0FD4TjwNXKIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion=">Babel ouput of functional component</a></li>
+  </Appear>
+</ul>
+
+---
+
+## Rules of Hooks
+
+<ul style={{ marginTop: 100, textAlign: 'left' }}>
+  <Appear>
+    <li>Only call Hooks <b>at the top level</b>. Don’t call Hooks inside loops, conditions, or nested functions</li>
+    <li>Only call Hooks <b>from React function components</b>. Don’t call Hooks from regular JavaScript functions</li>
+  </Appear>
+</ul>
+
+---
+
+## List of Hooks
+
+<ul style={{ marginTop: 50, textAlign: 'left' }}>
+  <Appear>
+    <li>useState</li>
+    <li>useEffect</li>
+    <li>useContext</li>
+    <li>useReducer</li>
+    <li>useCallback</li>
+    <li>useMemo</li>
+    <li>useRef</li>
+    <li>useImperativeMethods</li>
+    <li>useLayoutEffect</li>
+  </Appear>
+</ul>
+<a target="blank" href="https://reactjs.org/docs/hooks-reference.html">Hooks API Reference</a>
+
+---
+<CodeSurfer
+  title="Counter class"
+  code={require("!raw-loader!./slide-examples/counter-class.example")}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [4, 26], notes: 'counter class' },
+    { range: [5, 10], notes: 'initialize our state' },
+    { range: [15, 21], notes: 'update into local storage our count state' },
+    { range: [22, 25], notes: 'render function' },
+    { range: [11, 14], notes: 'incrementCount callback' },
+  ]}
+/>
+---
+# Demo
+
+### Let's transform previous class into function component with hooks
+---
 # The end
 
 <div style={{ marginTop: 30 }}>

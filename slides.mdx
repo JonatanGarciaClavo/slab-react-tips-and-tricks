@@ -498,6 +498,33 @@ Given an state we need to apply to that state all business logic needed to be di
 
 ---
 
+<CodeSurfer
+  title="TODO class"
+  code={require("!raw-loader!./src/cases/8/example.js")}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [10, 100], notes: 'todo class' },
+    { range: [11, 19], notes: 'constructor' },
+    { range: [25, 30], notes: 'componentDidMount' },
+    { range: [20, 24], notes: 'update function' },
+    { range: [31, 35], notes: 'componentDidUpdate' },
+    { range: [76, 97], notes: 'render' },
+    { range: [37, 42], notes: 'handleNewChange' },
+    { range: [42, 51], notes: 'handleNewSubmit' },
+    { range: [52, 58], notes: 'handleDelete' },
+    { range: [59, 67], notes: 'handleCompletedToggle' },
+    { range: [68, 72], notes: 'handleThemeChange' },
+  ]}
+/>
+---
+# Exercise
+
+### Let's transform previous class into function component with hooks
+
+---
+
 # The end
 
 <div style={{ marginTop: 30 }}>

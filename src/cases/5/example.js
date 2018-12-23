@@ -1,6 +1,10 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { connect } from 'react-redux';
-import { createSelector, createStructuredSelector } from 'reselect';
+import { 
+  createSelector, 
+  createStructuredSelector 
+} from 'reselect';
 import { Flex, Box, Text } from 'rebass';
 import { generateListItems } from '../../utils';
 const ASC = 'ASC';
@@ -30,7 +34,8 @@ const initialState = {
   items: generateListItems(),
 };
 
-export const selectorsExampleReducer = (state = initialState, action) => {
+export const selectorsExampleReducer = 
+  (state = initialState, action) => {
   switch (action.type) {
     case SET_FILTER:
       return {
@@ -46,7 +51,9 @@ export const selectorsExampleReducer = (state = initialState, action) => {
       return state;
   }
 };
-const selectSelectorsExampleDomain = state => state.selectorsExample;
+const selectSelectorsExampleDomain = state => (
+  state.selectorsExample
+);
 const makeSelectFilter = createSelector(
   selectSelectorsExampleDomain,
   ({ filter }) => filter,
@@ -66,13 +73,28 @@ const makeSelectFilterAndSortedList = createSelector(
   makeSelectSort,
   (items, filter, sort) =>
     items
-      .filter(item => (filter ? item.text.toLowerCase().includes(filter.toLowerCase()) : true))
-      .sort((a, b) => (sort === ASC ? a.text.localeCompare(b.text) : b.text.localeCompare(a.text))),
+      .filter(item => (
+        filter 
+          ? item.text.toLowerCase().includes(filter.toLowerCase()) 
+          : true
+        )
+      ).sort((a, b) => (
+        sort === ASC 
+          ? a.text.localeCompare(b.text) 
+          : b.text.localeCompare(a.text)
+      )),
 );
 
 class Example5 extends React.PureComponent {
   render() {
-    const { items, filter, sort, handleFilterChange, handleSortChange } = this.props;
+    const {
+      items,
+      filter, 
+      sort, 
+      handleFilterChange, 
+      handleSortChange
+    } = this.props;
+
     return (
       <Flex flexDirection="column" alignItems="center">
         <Flex>

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { Box, Flex } from 'rebass';
 import { Grid } from 'react-virtualized';
@@ -13,7 +14,10 @@ const ListItem = ({ persona, style }) => (
 );
 
 const cellRenderer = ({ columnIndex, rowIndex, style }) => (
-  <ListItem persona={personas[rowIndex * 4 + columnIndex]} style={style} />
+  <ListItem
+    persona={personas[rowIndex * 4 + columnIndex]}
+    style={style}
+  />
 );
 
 const VirtualizedGrid = ({ personas }) => (

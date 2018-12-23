@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 
 import ThemeContext from './shared/ThemeContext';
@@ -18,13 +19,19 @@ class TodoList extends Component {
     this.todoId = 0;
   }
   update(todos) {
-    const inCompleteTodos = todos.reduce((memo, todo) => (!todo.completed ? memo + 1 : memo), 0);
-    document.title = inCompleteTodos ? `Todos (${inCompleteTodos})` : 'Todos';
+    const inCompleteTodos = todos.reduce((memo, todo) => (
+      !todo.completed ? memo + 1 : memo
+    ), 0);
+    document.title = inCompleteTodos 
+                      ? `Todos (${inCompleteTodos})` 
+                      : 'Todos';
     window.localStorage.setItem('todos', JSON.stringify(todos));
   }
   componentDidMount() {
-    const todos = JSON.parse(window.localStorage.getItem('todos') || '[]');
-    this.todoId = todos.reduce((memo, todo) => Math.max(memo, todo.id), 0);
+    const todos = JSON
+      .parse(window.localStorage.getItem('todos') || '[]');
+    this.todoId = todos
+      .reduce((memo, todo) => Math.max(memo, todo.id), 0);
     this.update(todos);
     this.setState({ todos });
   }
@@ -33,7 +40,6 @@ class TodoList extends Component {
       this.update(this.state.todos);
     }
   }
-
   handleNewChange = e => {
     this.setState({
       newTodo: e.target.value,
@@ -44,7 +50,14 @@ class TodoList extends Component {
     this.todoId += 1;
     this.setState(prevState => {
       return {
-        todos: [...prevState.todos, { id: this.todoId, text: prevState.newTodo, completed: false }],
+        todos: [
+          ...prevState.todos, 
+          { 
+            id: this.todoId, 
+            text: prevState.newTodo, 
+            completed: false 
+          }
+        ],
         newTodo: '',
       };
     });
@@ -60,7 +73,9 @@ class TodoList extends Component {
     this.setState(prevState => {
       return {
         todos: prevState.todos.map(todo =>
-          todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+          todo.id === id 
+            ? { ...todo, completed: !todo.completed } 
+            : todo,
         ),
       };
     });
@@ -75,7 +90,10 @@ class TodoList extends Component {
     return (
       <ThemeContext.Provider value={theme}>
         <Container theme={theme} todos={todos}>
-          <Switch checked={theme === 'light'} onChange={this.handleThemeChange} />
+          <Switch 
+            checked={theme === 'light'} 
+            onChange={this.handleThemeChange} 
+          />
           <NewTodo
             onSubmit={this.handleNewSubmit}
             value={newTodo}

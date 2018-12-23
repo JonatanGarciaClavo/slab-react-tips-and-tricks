@@ -4,42 +4,46 @@ import { CodeSurfer } from 'mdx-deck-code-surfer';
 import vsDark from 'prism-react-renderer/themes/vsDark';
 import { FullScreenCode } from 'mdx-deck/layouts';
 
-<img src="https://www.sytac.io/wp-content/uploads/2017/11/logo.svg" />
+<img width={600} src="https://www.sytac.io/wp-content/uploads/2017/11/logo.svg" />
 
 # React tips and tricks
 
 ---
 
-# What this talk about?
+## What this talk about?
 
-> We want to show you a few tips, tricks, patterns, etc. that will help you in your day work
+<h4>We want to show you a few tips, tricks, patterns, etc. that will help you in your day work</h4>
 
 ---
 
-# Are you ready?
+## Are you ready?
 
 <div style={{ marginTop: 80 }}>
-  <img src="https://media.giphy.com/media/A7BrncpC2Z8Ws/giphy.gif" />
+  <img width={600} src="https://media.giphy.com/media/A7BrncpC2Z8Ws/giphy.gif" />
 </div>
+
 ---
+
 # Keys
 
 <div style={{ marginTop: 80 }}>
-  <img src="https://media.giphy.com/media/OTnDHCCFNZHwc/giphy.gif" />
+  <img width={600} src="https://media.giphy.com/media/OTnDHCCFNZHwc/giphy.gif" />
 </div>
 
 ---
 
 ## Why keys in React are so important?
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
-    <li>Help reconciler algorithm</li>
+    <li>Help reconciler algorithm.</li>
     <li>Identify which items have changed, are added, or are removed.</li>
-    <li>Should be unique among their siblings</li>
+    <li>Should be unique among their siblings.</li>
   </Appear>
 </ul>
+
 ---
+
 <CodeSurfer
   title="Example 1"
   code={require("!raw-loader!./src/cases/1/example.js")}
@@ -54,25 +58,33 @@ import { FullScreenCode } from 'mdx-deck/layouts';
     { range: [10, 14], notes: "Add a new list item to the state" },
   ]}
 />
----
-# Demo Example 1
----
-# How to run it?
 
-- `git clone https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git`
-- `cd slab-react-tips-and-tricks`
-- `npm install` or `yarn install`
-- `npm run start` or `yarn start`
+---
+
+# Demo Example 1
+
+---
+
+## How to run it?
+
+<ul>
+  <li><code>git clone https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git</code></li>
+  <li><code>cd slab-react-tips-and-tricks</code></li>
+  <li><code>npm install</code> or <code>yarn install</code></li>
+  <li><code>npm run start</code> or <code>yarn start</code></li>
+</ul>
 
 ---
 
 ## Exercise 1
 
-1. 🔎 Check and analyze code
-2. 👀 Check when click in both buttons how DOM it is updated
-3. ❌ Detect why when click first bottom all our list items get updated
-4. ✅ Fix problem and check again that DOM updates are right
-5. ❓ Why it was working for one button and it wasn't for the other?
+<ol>
+  <li>🔎 Check and analyze code.</li>
+  <li>👀 Check when click in both buttons how DOM it is updated.</li>
+  <li>❌ Detect why when click first bottom all our list items get updated.</li>
+  <li>✅ Fix problem and check again that DOM updates are right.</li>
+  <li>❓ Why it was working for one button and it wasn't for the other?</li>
+</ol>
 
 ---
 
@@ -81,19 +93,23 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 <div style={{ marginTop: 80 }}>
   <img src='https://media.giphy.com/media/7XjITjlQqA5he/giphy.gif' />
 </div>
+
 ---
+
 ## What the hell are HOCs?
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
     <li>It is a function that takes a component and returns a new component</li>
     <li>Principal use is for reusing component logic</li>
   </Appear>
 </ul>
+
 ---
+
 ## HOCs tips
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
     <li><b>Don’t Mutate</b> the Original Component. Use Composition</li>
     <li><b>Pass Unrelated Props</b> Through to the Wrapped Component</li>
@@ -102,27 +118,36 @@ import { FullScreenCode } from 'mdx-deck/layouts';
     <li><b>Refs Aren’t Passed Through</b>(use React.forwardRef)</li>
   </Appear>
 </ul>
----
-# Demo Example 2
----
-## Exercise 2
 
-## What we try to accomplish in this exercise it is build 2 HOC that help us with repetitive behavior of our components. We need a component that will display a list of characters and a button that will handle when display or not title in our list
+---
+
+# Demo Example 2
+
+---
+
+## Exercise 2
+<p>What we try to accomplish in this exercise is to build 2 HOC that help us with repetitive behavior of our components.</p>
+<p>We need a component that will display a list of characters and a button that will handle when display or not title in our list.</p>
+
+---
 
 # Virtualize your heavy lists
 
 <div style={{ marginTop: 80 }}>
   <img src='http://forgifs.com/gallery/d/264720-2/Old-man-smartphone-scrolling.gif' />
 </div>
+
 ---
+
 ## Dealing with loooooong lists?
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
     <li>Pagination</li>
     <li>Infinite Scrolling</li>
   </Appear>
 </ul>
+
 ---
 
 ## But what if that's not an option?
@@ -133,6 +158,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
   href="https://bvaughn.github.io/react-virtualized/#/components/List" 
   target="_blank"
 >Virtualize your lists 👉</a>
+
 ---
 
 ## Windowing
@@ -141,7 +167,9 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 <div style={{ marginTop: 80 }}>
   <img style={{ width: '60%' }} src='https://cdn-images-1.medium.com/max/1600/1*VuAzFDUG0MQYhGohAZqrMw.jpeg' />
 </div>
+
 ---
+
 <CodeSurfer
   title="Example 3"
   code={require("!raw-loader!./src/cases/3/example.js")}
@@ -151,43 +179,51 @@ import { FullScreenCode } from 'mdx-deck/layouts';
   steps={[
     {},
     { range: [6, 8], notes: "generate list of 5000 personas" },
-    { range: [35, 37], notes: "render" },
-    { range: [21, 29], notes: "Virtualized grid component" },
-    { range: [15, 17], notes: "Cell renderer function" },
+    { range: [36, 41], notes: "render" },
+    { range: [22, 34], notes: "Virtualized grid component" },
+    { range: [15, 20], notes: "Cell renderer function" },
   ]}
 />
+
 ---
+
 ## Exercise 3
 
 <div style={{fontSize: '36px'}}>
-The purpose of this exercise is to implement a virtualized version for the list that we display
-<ol style={{textAlign: 'left'}}>
-<li>📥 Import the required elements from the 'react-virtualized' library</li>
-<li>🏗 Recreate the list we actually have with the new virtualized component. Special attention for the rowRenderer method</li>
-<li>☝️ Replace the list for the new one in the main component.</li>
-<li>🎖 Extra bonus points for using the previously created withToggle HOC to build a toggle system to switch between the two lists.</li>
-</ol>
+  The purpose of this exercise is to implement a virtualized version for the list that we display.
+  <ol>
+    <li>📥 Import the required elements from the 'react-virtualized' library.</li>
+    <li>🏗 Recreate the list we actually have with the new virtualized component. Special attention for the rowRenderer method.</li>
+    <li>☝️ Replace the list for the new one in the main component.</li>
+    <li>🎖 Extra bonus points for using the previously created withToggle HOC to build a toggle system to switch between the two lists.</li>
+  </ol>
 </div>
+
 ---
+
 # Don't mutate...
 
 <div style={{ marginTop: 40 }}>
-  <img src='https://i.giphy.com/media/afWPlDUNXzEPe/giphy.webp' />
-  <div style={{fontSize: 20}}>...your data structures!</div>
+  <img width={500} src='https://i.giphy.com/media/afWPlDUNXzEPe/giphy.webp' />
+  <p>...your data structures!</p>
 </div>
----
-## Why inmmutable data structures?
-<div style={{fontSize: 20}}>Why should you care if JS doesn’t care?</div>
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+---
+
+## Why inmmutable data structures?
+<div>Why should you care if JS doesn’t care?</div>
+
+<ul>
   <Appear>
-    <li>Mutable structures are a reason of trust deficit 🙋‍</li>
-    <li>Mutation is a cause of side effects 🙋‍</li>
-    <li>Mutation is a cause of unpredictable state 🙋‍</li>
-    <li>But ... it reuse the memory and is fast 🤷‍</li>
+    <li>Mutable structures are a reason of trust deficit. 🙋‍</li>
+    <li>Mutation is a cause of side effects. 🙋‍</li>
+    <li>Mutation is a cause of unpredictable state. 🙋‍</li>
+    <li>But ... it reuse the memory and is fast. 🤷‍</li>
   </Appear>
 </ul>
+
 ---
+
 <div>
 <a 
   style={{display: 'block'}}
@@ -195,40 +231,49 @@ The purpose of this exercise is to implement a virtualized version for the list 
   target="_blank"
 ><img src="http://www.webappers.com/img/2015/01/immutable.jpg" /></a>
 </div>
+
 ---
+
 ## Benefits of using immutable.js
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
     <li>Your data structures change predictably ☝️</li>
     <li>Robust data manipulation ✌️</li>
     <li>Concise readable code 👌</li>
   </Appear>
 </ul>
+
 ---
-# Demo Example immutable
-(maybe 🤷‍)
+
+## How does is work?
+
 ---
+
 # Avoid unnecessary reconciliation
 
 <div style={{ marginTop: 80 }}>
   <img src='https://media.giphy.com/media/TioDmIjphpJ5K/giphy.gif' />
 </div>
+
 ---
+
 ## Why avoid unnecessary reconciliation is so important?
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
-    <li>Reconciliation is how we call that action that decide when and how to re render DOM</li>
-    <li>Nobody wants re render things all time</li>
-    <li>Seriously, you don't want to re render your components if their DOM nodes is huge</li>
-    <li>Because of that, lets try to help algorithm to take easy and fast decisions</li>
+    <li>Reconciliation is how we call that action that decide when and how to re-render DOM.</li>
+    <li>Nobody wants re-render things all time.</li>
+    <li>Seriously, you don't want to re-render your components if their DOM nodes is huge.</li>
+    <li>Because of that, lets try to help algorithm to take easy and fast decisions.</li>
   </Appear>
 </ul>
+
 ---
+
 ## So how we could avoid unnecesary reconciliations?
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
     <li>shouldComponentUpdate()</li>
     <li>PureComponent</li>
@@ -236,7 +281,9 @@ The purpose of this exercise is to implement a virtualized version for the list 
     <li>🚨 Stateless component functions work like React.Components 🚨</li>
   </Appear>
 </ul>
+
 ---
+
 <CodeSurfer
   title="🚫 Arrow functions"
   code={require("!raw-loader!./slide-examples/avoid-arrow-functions.example")}
@@ -248,7 +295,9 @@ The purpose of this exercise is to implement a virtualized version for the list 
     { range: [23, 33], notes: "check props and class function" },
   ]}
 />
+
 ---
+
 <CodeSurfer
   title="🚫 Objects and Arrays generation in props"
   code={require("!raw-loader!./slide-examples/avoid-object-array.example")}
@@ -261,7 +310,9 @@ The purpose of this exercise is to implement a virtualized version for the list 
     { range: [18, 21], notes: "use previously const as props" },
   ]}
 />
+
 ---
+
 <CodeSurfer
   title="🚫 Derived data in render"
   code={require("!raw-loader!./slide-examples/derived-data.example")}
@@ -273,22 +324,29 @@ The purpose of this exercise is to implement a virtualized version for the list 
     { range: [5, 7], notes: "😱 we are filtering our items each render 😱" },
   ]}
 />
+
 ---
+
 # Demo Example 4
+
 ---
+
 ## Exercise 4
 
-This exercise it is a bit different compared with other ones, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix it.
+<div>This exercise it is a bit different compared with other ones, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix it.</div>
+<div style={{marginTop: 40}}><strong>🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉</strong></div>
 
-## 🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉
+---
 
 # Derived Redux state
 
 <div style={{ marginTop: 80 }}>
   <img src='https://media.giphy.com/media/DIWNLjfedwPRe/giphy.gif' />
 </div>
+
 ---
-## What derived Redux state means?
+
+## What does 'derived Redux state' means?
 
 Given an state we need to apply to that state all business logic needed to be displayed in our components
 
@@ -304,7 +362,9 @@ Given an state we need to apply to that state all business logic needed to be di
     { range: [1, 8], notes: '🚨 Recalculating derived data can be expensive 🚨' },
   ]}
 />
+
 ---
+<div style={{fontSize: '10px'}}>
 <CodeSurfer
   title="Derived Redux state with reselect"
   code={require("!raw-loader!./slide-examples/reselect.example")}
@@ -318,27 +378,35 @@ Given an state we need to apply to that state all business logic needed to be di
     { range: [12, 14], notes: 'Use a memoized selector' },
   ]}
 />
+</div>
+
 ---
+
 ## When we use reselect?
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
     <li>When given a raw data you have to <strong>apply multiple transformations</strong></li>
     <li>When you have to <strong>apply different kind of business logic</strong> to your state</li>
     <li>When you <strong>can not normalize</strong> your data</li>
   </Appear>
 </ul>
+
 ---
+
 # Demo Example 5
+
 ---
+
 <CodeSurfer
   title="Selectors example"
   code={require("!raw-loader!./src/cases/5/example.js")}
   lang="javascript"
   showNumbers
   theme={vsDark}
+  style={{width: '500px'}}
   steps={[
-    { range: [27, 31], notes: 'state' },
+    { range: [31, 35], notes: 'state' },
     { range: [49, 52], notes: 'domain selectors to get all our state props' },
     { range: [54, 62], notes: 'select and apply filter and short to our list of items' },
     { range: [99, 103], notes: 'Use al our selector' },
@@ -349,7 +417,13 @@ Given an state we need to apply to that state all business logic needed to be di
 
 ## Exercise 5
 
-## In this exercise we will work with selectors, for that let's build a shopping cart 🙌🏼. To build this cart we will have a reducer with all our cart items, you don't need to worried about that, it is already done 😉. What you need to complete it is how to transform/normalize your cart items to be able to following some rules/use case.
+In this exercise we will work with selectors, for that let's build a shopping cart 🙌🏼. 
+
+To build this cart we will have a reducer with all our cart items, you don't need to worried about that, is already done 😉.
+
+What you need to complete is how to transform/normalize your cart items to be able to follow some rules/use cases.
+
+---
 
 # React Profiler
 
@@ -357,24 +431,32 @@ Given an state we need to apply to that state all business logic needed to be di
   <img style={{width: 500}}src='https://media.giphy.com/media/KjRDrnHVXH1PG/giphy.gif' />
 </div>
 <div style={{fontSize: 20, marginTop: 20}}>Monitorize, debug and optimize</div>
+
 ---
+
 ## React has two working phases
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
     <li>Render: determines what DOM changes need to be made by comparing render results with a previous render</li>
     <li>Commit: applies any changes that need to happen. Add/remove from the DOM and call lifecycle hooks</li>
   </Appear>
 </ul>
+
 ---
+
 ## Demo example Profiler
 <div style={{fontSize: 30, marginTop: 60}}>Let's see it in action 🔍</div>
+
 ---
+
 ## Exercise 6
 
 <div style={{fontSize: 30}}>✅ The purpose of this exercise is only to use the React Profiler to compare the performance between the previously proposed exercise and the solution.</div>
 <div style={{fontSize: 30, marginTop: 20}}>🕚 Check the benchmark times of rendering to see the differences in performance.</div>
+
 ---
+
 # Hooks
 
 <div style={{ marginTop: 40 }}>
@@ -383,30 +465,22 @@ Given an state we need to apply to that state all business logic needed to be di
 
 ---
 
-# Hooks
+## Introduction to Hooks
 
-<div style={{ marginTop: 30 }}>
-  <img width={800} src="https://media.giphy.com/media/70hm1fhEG8AOQ/giphy.gif" />
-</div>
-
----
-
-## Introducing to Hooks
-
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
     <li>
       Hooks are functions that let you “hook into” React state and lifecycle features from function
       components
     </li>
     <li>
-      This is a feature proposal aka <b>it is in alpha</b>
+      This is a feature proposal aka <b>is in alpha.</b>
     </li>
-    <li>No Breaking Changes</li>
-    <li>Completely opt-in</li>
-    <li>100% backwards-compatible</li>
-    <li>There are no plans to remove classes from React</li>
-    <li>Hooks don’t replace your knowledge of React concepts</li>
+    <li>No Breaking Changes.</li>
+    <li>Completely opt-in.</li>
+    <li>100% backwards-compatible.</li>
+    <li>There are no plans to remove classes from React.</li>
+    <li>Hooks don’t replace your knowledge of React concepts.</li>
     <li>🚨 Please, please don't refactor your current code with Hooks 🚨</li>
   </Appear>
 </ul>
@@ -415,17 +489,17 @@ Given an state we need to apply to that state all business logic needed to be di
 
 ## Motivation
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
-    <li>It’s hard to reuse stateful logic between components</li>
-    <li>Complex components become hard to understand and maintain</li>
-    <li>Classes confuse both people and machines</li>
+    <li>It’s hard to reuse stateful logic between components.</li>
+    <li>Complex components become hard to understand and maintain.</li>
+    <li>Classes confuse both people and machines.</li>
     <li>
       <a
         target="blank"
         href="https://babeljs.io/en/repl#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=JYWwDg9gTgLgBAJQKYEMDG8BmUIjgcilQ3wG4AoUSWOAbzgCEBXGGCAOzgF85tcCiAIxQBnEWXLk0AG1Ei4AYQhN2MJFDhIAHmvYATecnQwAdEvAckquuThw0HETChMM0ABRgcYEQEobdnYiTGDqnt5-FIFwMAAWwCImTihqcAC8AdH2yqoAXHAAckwggmEA7sD6EGUm0hBoKNIAymxQKADmSCadMACSaiDu-A4qMPj-AD4TcAAMvgA0toFcUdxLlWhEIFYwSqPpcO7-aQB8S3ZxCUlIMC0pSO7u9CPWXMcnh7TngS8w-b9wADUcAAjItom9fKsHBZ2DsACLAPQAVTAenu7gA-vM4F4kAA3O5qfxfaIOdhOOjZfY8DKXRLJNSrOzATCHPGEmD3EwAgCEaQyvxJ3zs5JEEGkXTq7SGIhQ-KQ1NU42ZgQqVRqdQazVaHS6Ihu_SQg2GOTGOKFqq4S2tdiI-jCwrJjngzzN3AO9KSXKZ3yIMCYUE4AB5mKwOHAOAppMA0ABrNK0L0bLY7PaqLgnWi_LjBgD0YbY7BOq2tXCAA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion="
       >
-        Babel output of class component
+        Babel output of class component.
       </a>
     </li>
     <li>
@@ -433,7 +507,7 @@ Given an state we need to apply to that state all business logic needed to be di
         target="blank"
         href="https://babeljs.io/en/repl.html#?babili=false&browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=JYWwDg9gTgLgBAJQKYEMDGMA0cDecCuAzkgMowoxLZFICiAZvUhtcQMIoA2nARugNZwAvnHpQIIOAHIoqDFIDcAKFCRYuOACF8MGBAB2w0eMkykfQoUVKl9fPozADcNhHuUoACgCUuJXDg0A0J4AG0g92xiGFd3AF04AF4CYjIKJE8fJIA-OAA5fBAeJC8Ad2B9ABMIUoA6Tgg0LjJoFABzJFqOmABJShBPKQj9GClfAB9xuAAGb29lAKD9ELgKtFkQJBHYkaSUpA5uPjR-TN9E3OidmE9h-ABqOABGOYX9hiYMT38AuCyLvy_X7lKo1eqNZp6KDtTrRPpIAZDNwjKTYO7zH4BISYTFwcLImBxHEBDEBWQwfBQQwAHm0umcBjYnGAJ0SODWGy2MQJQmyODuQmpAHo6Xp9NllEIbNcSrUYMAYJwkHspDKoNYlEgAB5qeCVJD0FD4TjwNXKIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=es2015%2Creact%2Cstage-2&prettier=false&targets=&version=6.26.0&envVersion="
       >
-        Babel ouput of functional component
+        Babel ouput of functional component.
       </a>
     </li>
   </Appear>
@@ -443,15 +517,15 @@ Given an state we need to apply to that state all business logic needed to be di
 
 ## Rules of Hooks
 
-<ul style={{ marginTop: 100, textAlign: 'left' }}>
+<ul>
   <Appear>
     <li>
       Only call Hooks <b>at the top level</b>. Don’t call Hooks inside loops, conditions, or nested
-      functions
+      functions.
     </li>
     <li>
       Only call Hooks <b>from React function components</b>. Don’t call Hooks from regular
-      JavaScript functions
+      JavaScript functions.
     </li>
   </Appear>
 </ul>
@@ -460,7 +534,7 @@ Given an state we need to apply to that state all business logic needed to be di
 
 ## List of Hooks
 
-<ul style={{ marginTop: 50, textAlign: 'left' }}>
+<ul>
   <Appear>
     <li>useState</li>
     <li>useEffect</li>
@@ -492,6 +566,7 @@ Given an state we need to apply to that state all business logic needed to be di
   ]}
 />
 ---
+
 # Demo
 
 ### Let's transform previous class into function component with hooks
@@ -507,18 +582,20 @@ Given an state we need to apply to that state all business logic needed to be di
   steps={[
     { range: [10, 100], notes: 'todo class' },
     { range: [11, 19], notes: 'constructor' },
-    { range: [25, 30], notes: 'componentDidMount' },
-    { range: [20, 24], notes: 'update function' },
-    { range: [31, 35], notes: 'componentDidUpdate' },
-    { range: [76, 97], notes: 'render' },
-    { range: [37, 42], notes: 'handleNewChange' },
-    { range: [42, 51], notes: 'handleNewSubmit' },
-    { range: [52, 58], notes: 'handleDelete' },
-    { range: [59, 67], notes: 'handleCompletedToggle' },
-    { range: [68, 72], notes: 'handleThemeChange' },
+    { range: [30, 37], notes: 'componentDidMount' },
+    { range: [21, 29], notes: 'update function' },
+    { range: [38, 42], notes: 'componentDidUpdate' },
+    { range: [89, 119], notes: 'render' },
+    { range: [43, 47], notes: 'handleNewChange' },
+    { range: [48, 64], notes: 'handleNewSubmit' },
+    { range: [65, 71], notes: 'handleDelete' },
+    { range: [72, 82], notes: 'handleCompletedToggle' },
+    { range: [83, 87], notes: 'handleThemeChange' },
   ]}
 />
+
 ---
+
 # Exercise
 
 ### Let's transform previous class into function component with hooks
@@ -530,7 +607,12 @@ Given an state we need to apply to that state all business logic needed to be di
 <div style={{ marginTop: 30 }}>
   <img src="https://media.giphy.com/media/l2R0eYcNq9rJUsVAA/giphy.gif" />
 </div>
-
-- [https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git](https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git)
-- Jonatan García Clavo - [jonatan.garcia@sytac.io](jonatan.garcia@sytac.io)
-- Luis Sanchez Gomez - [luis.sanchez@sytac.io](luis.sanchez@sytac.io)
+<ul>
+  <li>
+    <a href="https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git">
+      https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git
+    </a>
+  </li>
+  <li>Jonatan García Clavo - jonatan.garcia@sytac.io</li>
+  <li>Luis Sanchez Gomez - luis.sanchez@sytac.io</li>
+</ul>

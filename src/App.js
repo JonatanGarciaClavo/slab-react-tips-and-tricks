@@ -80,7 +80,7 @@ function ComponentContainer({ label, ...props }) {
           padding: 20,
           border: '1px solid',
           display: 'grid',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
         }}
       >
@@ -197,7 +197,7 @@ function FullPage({ type, caseNumber }) {
           margin: 20,
           border: '1px solid',
           display: 'grid',
-          alignItems: 'center',
+          alignItems: 'flex-start',
           justifyContent: 'center',
         }}
       >
@@ -259,7 +259,7 @@ function NoMatch() {
       style={{
         height: '100%',
         display: 'grid',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'center',
       }}
     >

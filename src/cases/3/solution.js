@@ -52,7 +52,7 @@ const VirtualizedList = ({ personas }) => (
       rowRenderer={({ index, style }) => (
         <ListItem key={index} persona={personas[index]} style={style} />
       )}
-      width={960}
+      width={610}
     />
   </Box>
 );

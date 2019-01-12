@@ -14,10 +14,7 @@ const ListItem = ({ persona, style }) => (
 );
 
 const cellRenderer = ({ columnIndex, rowIndex, style }) => (
-  <ListItem
-    persona={personas[rowIndex * 4 + columnIndex]}
-    style={style}
-  />
+  <ListItem persona={personas[rowIndex * 4 + columnIndex]} style={style} />
 );
 
 const VirtualizedGrid = ({ personas }) => (

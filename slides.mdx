@@ -46,16 +46,16 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 <CodeSurfer
   title="Example 1"
-  code={require("!raw-loader!./src/cases/1/example.js")}
+  code={require('!raw-loader!./src/cases/1/example.js')}
   lang="javascript"
   showNumbers
   theme={vsDark}
   steps={[
     {},
-    { range: [6, 8], notes: "state" },
-    { range: [16, 34], notes: "render" },
-    { tokens: { 30: [4, 5, 6, 7 , 8,] }, notes: "Button handler" },
-    { range: [10, 14], notes: "Add a new list item to the state" },
+    { range: [6, 8], notes: 'state' },
+    { range: [16, 34], notes: 'render' },
+    { tokens: { 30: [4, 5, 6, 7, 8] }, notes: 'Button handler' },
+    { range: [10, 14], notes: 'Add a new list item to the state' },
   ]}
 />
 
@@ -68,10 +68,18 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 ## How to run it?
 
 <ul>
-  <li><code>git clone https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git</code></li>
-  <li><code>cd slab-react-tips-and-tricks</code></li>
-  <li><code>npm install</code> or <code>yarn install</code></li>
-  <li><code>npm run start</code> or <code>yarn start</code></li>
+  <li>
+    <code>git clone https://github.com/JonatanGarciaClavo/slab-react-tips-and-tricks.git</code>
+  </li>
+  <li>
+    <code>cd slab-react-tips-and-tricks</code>
+  </li>
+  <li>
+    <code>npm install</code> or <code>yarn install</code>
+  </li>
+  <li>
+    <code>npm run start</code> or <code>yarn start</code>
+  </li>
 </ul>
 
 ---
@@ -91,7 +99,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 # HOCs
 
 <div style={{ marginTop: 80 }}>
-  <img src='https://media.giphy.com/media/7XjITjlQqA5he/giphy.gif' />
+  <img src="https://media.giphy.com/media/7XjITjlQqA5he/giphy.gif" />
 </div>
 
 ---
@@ -111,11 +119,21 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 <ul>
   <Appear>
-    <li><b>Don’t mutate</b> the original component. Use Composition.</li>
-    <li><b>Pass unrelated props</b> through to the wrapped component.</li>
-    <li><b>Maximizing composability</b> aka use extra params if you need it.</li>
-    <li><b>Don’t use</b> HOCs <b>inside the render method.</b></li>
-    <li><b>Refs aren’t passed through</b> (use React.forwardRef)</li>
+    <li>
+      <b>Don’t mutate</b> the original component. Use Composition.
+    </li>
+    <li>
+      <b>Pass unrelated props</b> through to the wrapped component.
+    </li>
+    <li>
+      <b>Maximizing composability</b> aka use extra params if you need it.
+    </li>
+    <li>
+      <b>Don’t use</b> HOCs <b>inside the render method.</b>
+    </li>
+    <li>
+      <b>Refs aren’t passed through</b> (use React.forwardRef)
+    </li>
   </Appear>
 </ul>
 
@@ -126,6 +144,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 ---
 
 ## Exercise 2
+
 <p>What we try to accomplish in this exercise is to build 2 HOC that help us with repetitive behavior of our components.</p>
 <p>We need a component that will display a list of characters and a button that will handle when display or not title in our list.</p>
 
@@ -134,7 +153,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 # Virtualize your heavy lists
 
 <div style={{ marginTop: 80 }}>
-  <img src='http://forgifs.com/gallery/d/264720-2/Old-man-smartphone-scrolling.gif' />
+  <img src="http://forgifs.com/gallery/d/264720-2/Old-man-smartphone-scrolling.gif" />
 </div>
 
 ---
@@ -172,16 +191,16 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 <CodeSurfer
   title="Example 3"
-  code={require("!raw-loader!./src/cases/3/example.js")}
+  code={require('!raw-loader!./src/cases/3/example.js')}
   lang="javascript"
   showNumbers
   theme={vsDark}
   steps={[
     {},
-    { range: [6, 8], notes: "generate list of 5000 personas" },
-    { range: [36, 41], notes: "render" },
-    { range: [22, 34], notes: "Virtualized grid component" },
-    { range: [15, 20], notes: "Cell renderer function" },
+    { range: [6, 8], notes: 'generate list of 5000 personas' },
+    { range: [36, 41], notes: 'render' },
+    { range: [22, 34], notes: 'Virtualized grid component' },
+    { range: [15, 20], notes: 'Cell renderer function' },
   ]}
 />
 
@@ -189,13 +208,19 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ## Exercise 3
 
-<div style={{fontSize: '36px'}}>
+<div style={{ fontSize: '36px' }}>
   The purpose of this exercise is to implement a virtualized version for the list that we display.
   <ol>
     <li>📥 Import the required elements from the 'react-virtualized' library.</li>
-    <li>🏗 Recreate the list we actually have with the new virtualized component. Special attention for the rowRenderer method.</li>
+    <li>
+      🏗 Recreate the list we actually have with the new virtualized component. Special attention for
+      the rowRenderer method.
+    </li>
     <li>☝️ Replace the list for the new one in the main component.</li>
-    <li>🎖 Extra bonus points for using the previously created withToggle HOC to build a toggle system to switch between the two lists.</li>
+    <li>
+      🎖 Extra bonus points for using the previously created withToggle HOC to build a toggle system
+      to switch between the two lists.
+    </li>
   </ol>
 </div>
 
@@ -204,13 +229,14 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 # Don't mutate...
 
 <div style={{ marginTop: 40 }}>
-  <img width={500} src='https://i.giphy.com/media/afWPlDUNXzEPe/giphy.webp' />
+  <img width={500} src="https://i.giphy.com/media/afWPlDUNXzEPe/giphy.webp" />
   <p>...your data structures!</p>
 </div>
 
 ---
 
 ## Why inmmutable data structures?
+
 <div>Why should you care if JS doesn’t care?</div>
 
 <ul>
@@ -225,11 +251,9 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 ---
 
 <div>
-<a 
-  style={{display: 'block'}}
-  href="https://facebook.github.io/immutable-js/" 
-  target="_blank"
-><img src="http://www.webappers.com/img/2015/01/immutable.jpg" /></a>
+  <a style={{ display: 'block' }} href="https://facebook.github.io/immutable-js/" target="_blank">
+    <img src="http://www.webappers.com/img/2015/01/immutable.jpg" />
+  </a>
 </div>
 
 ---
@@ -255,7 +279,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 # Avoid unnecessary reconciliation
 
 <div style={{ marginTop: 80 }}>
-  <img src='https://media.giphy.com/media/TioDmIjphpJ5K/giphy.gif' />
+  <img src="https://media.giphy.com/media/TioDmIjphpJ5K/giphy.gif" />
 </div>
 
 ---
@@ -267,7 +291,9 @@ import { FullScreenCode } from 'mdx-deck/layouts';
     <li>Reconciliation is how we call that action that decide when and how to re-render DOM.</li>
     <li>Nobody wants to re-render things all time.</li>
     <li>Seriously, you don't want to re-render your components if their DOM nodes are huge.</li>
-    <li>Because of that, lets try to help reconciliation algorithm to take easy and fast decisions.</li>
+    <li>
+      Because of that, lets try to help reconciliation algorithm to take easy and fast decisions.
+    </li>
   </Appear>
 </ul>
 
@@ -288,13 +314,13 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 <CodeSurfer
   title="🚫 Arrow functions"
-  code={require("!raw-loader!./slide-examples/avoid-arrow-functions.example")}
+  code={require('!raw-loader!./slide-examples/avoid-arrow-functions.example')}
   lang="javascript"
   showNumbers
   theme={vsDark}
   steps={[
-    { range: [4, 18], notes: "check props" },
-    { range: [23, 33], notes: "check props and class function" },
+    { range: [4, 18], notes: 'check props' },
+    { range: [23, 33], notes: 'check props and class function' },
   ]}
 />
 
@@ -302,14 +328,14 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 <CodeSurfer
   title="🚫 Objects and Arrays generation in props"
-  code={require("!raw-loader!./slide-examples/avoid-object-array.example")}
+  code={require('!raw-loader!./slide-examples/avoid-object-array.example')}
   lang="javascript"
   showNumbers
   theme={vsDark}
   steps={[
-    { range: [1, 10], notes: "check props" },
-    { range: [12, 13], notes: "create a const outside of component" },
-    { range: [18, 21], notes: "use previously const as props" },
+    { range: [1, 10], notes: 'check props' },
+    { range: [12, 13], notes: 'create a const outside of component' },
+    { range: [18, 21], notes: 'use previously const as props' },
   ]}
 />
 
@@ -317,13 +343,13 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 <CodeSurfer
   title="🚫 Derived data in render"
-  code={require("!raw-loader!./slide-examples/derived-data.example")}
+  code={require('!raw-loader!./slide-examples/derived-data.example')}
   lang="javascript"
   showNumbers
   theme={vsDark}
   steps={[
     { range: [1, 11] },
-    { range: [5, 7], notes: "😱 we are filtering our items each render 😱" },
+    { range: [5, 7], notes: '😱 we are filtering our items each render 😱' },
   ]}
 />
 
@@ -343,7 +369,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 # Derived Redux state
 
 <div style={{ marginTop: 80 }}>
-  <img src='https://media.giphy.com/media/DIWNLjfedwPRe/giphy.gif' />
+  <img src="https://media.giphy.com/media/DIWNLjfedwPRe/giphy.gif" />
 </div>
 
 ---
@@ -356,20 +382,18 @@ Given a state, we need to apply to that state all business logic needed to be di
 
 <CodeSurfer
   title="Derived Redux state"
-  code={require("!raw-loader!./slide-examples/derived-redux.example")}
+  code={require('!raw-loader!./slide-examples/derived-redux.example')}
   lang="javascript"
   showNumbers
   theme={vsDark}
-  steps={[
-    { range: [1, 8], notes: '🚨 Recalculating derived data can be expensive 🚨' },
-  ]}
+  steps={[{ range: [1, 8], notes: '🚨 Recalculating derived data can be expensive 🚨' }]}
 />
 
 ---
 
 <CodeSurfer
   title="Derived Redux state with reselect"
-  code={require("!raw-loader!./slide-examples/reselect.example")}
+  code={require('!raw-loader!./slide-examples/reselect.example')}
   lang="javascript"
   showNumbers
   theme={vsDark}
@@ -387,9 +411,15 @@ Given a state, we need to apply to that state all business logic needed to be di
 
 <ul>
   <Appear>
-    <li>When given a raw data you have to <strong>apply multiple transformations.</strong></li>
-    <li>When you have to <strong>apply different kind of business logic</strong> to your state.</li>
-    <li>When you <strong>can not normalize</strong> your data.</li>
+    <li>
+      When given a raw data you have to <strong>apply multiple transformations.</strong>
+    </li>
+    <li>
+      When you have to <strong>apply different kind of business logic</strong> to your state.
+    </li>
+    <li>
+      When you <strong>can not normalize</strong> your data.
+    </li>
   </Appear>
 </ul>
 
@@ -399,10 +429,10 @@ Given a state, we need to apply to that state all business logic needed to be di
 
 ---
 
-<div style={{fontSize: '20px'}}>
+<div style={{ fontSize: '20px' }}>
   <CodeSurfer
     title="Selectors example"
-    code={require("!raw-loader!./src/cases/5/example.js")}
+    code={require('!raw-loader!./src/cases/5/example.js')}
     lang="javascript"
     showNumbers
     theme={vsDark}
@@ -419,7 +449,7 @@ Given a state, we need to apply to that state all business logic needed to be di
 
 ## Exercise 5
 
-In this exercise we will work with selectors, for that let's build a shopping cart 🙌🏼. 
+In this exercise we will work with selectors, for that let's build a shopping cart 🙌🏼.
 
 To build this cart we will have a reducer with all our cart items, you don't need to worried about that, is already done 😉.
 
@@ -440,15 +470,22 @@ What you need to complete is how to transform/normalize your cart items to be ab
 
 <ul>
   <Appear>
-    <li>Render: determines what DOM changes need to be made by comparing render results with a previous render.</li>
-    <li>Commit: applies any changes that need to happen. Add/remove from the DOM and call lifecycle hooks.</li>
+    <li>
+      Render: determines what DOM changes need to be made by comparing render results with a
+      previous render.
+    </li>
+    <li>
+      Commit: applies any changes that need to happen. Add/remove from the DOM and call lifecycle
+      hooks.
+    </li>
   </Appear>
 </ul>
 
 ---
 
 ## Demo example Profiler
-<div style={{fontSize: 30, marginTop: 60}}>Let's see it in action 🔍</div>
+
+<div style={{ fontSize: 30, marginTop: 60 }}>Let's see it in action 🔍</div>
 
 ---
 
@@ -577,7 +614,7 @@ What you need to complete is how to transform/normalize your cart items to be ab
 
 <CodeSurfer
   title="TODO class"
-  code={require("!raw-loader!./src/cases/8/example.js")}
+  code={require('!raw-loader!./src/cases/8/example.js')}
   lang="javascript"
   showNumbers
   theme={vsDark}

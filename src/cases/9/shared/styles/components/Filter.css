@@ -1,0 +1,61 @@
+/* Filter component styles */
+.filter-container {
+    margin: 0.5rem 1rem;
+    width: 15rem;
+}
+
+.filter-container label {
+    display: block;
+    font-size: 0.75rem;
+    margin: 0.25rem;
+}
+
+.filter-container select {
+    background: none;
+    border: none;
+    border-bottom: 2px solid #F8F8F8;
+    border-radius: 0;
+    box-sizing: border-box;
+    display: block;
+    font-size: 1rem;
+    margin: 0.25rem;
+    padding: 0.25rem 0;
+    width: 95%;
+    -webkit-appearance: none;
+}
+
+/* Filter disabled status styles */
+.filter-container select:disabled {
+    border-bottom: 2px solid #77C0B7;
+    color: #77C0B7;
+}
+
+.filter-container button {
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 300;
+    margin: 0.25rem;
+    padding: 0.25rem;
+    width: 95%;
+    -webkit-appearance: none;
+}
+
+/* Filter styles for small screens */
+@media (max-width: 45rem) {
+    .filter-container {
+        width: 100%;
+        margin: 1rem;
+    }
+
+    .filter-container select {
+        width: 90%;
+    }
+
+    .filter-container button {
+        width: 90%;
+    }
+}

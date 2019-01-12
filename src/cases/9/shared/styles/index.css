@@ -1,0 +1,24 @@
+/* Montserrat font */
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,500');
+
+/* Base styles */
+body {
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin: 0.5rem;
+}
+
+.clearfix:after {
+  clear: both;
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}

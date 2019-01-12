@@ -1,0 +1,18 @@
+/* Filter list container styles */
+.filter-list-container {
+    background: #D8EDEA;
+    border-bottom: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+/* Styles for small screens */
+@media (max-width: 45rem) {
+    .filter-list-container {
+        display: block;
+    }
+}

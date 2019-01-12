@@ -4,7 +4,7 @@ import { fetchVehicles } from '../service/apiUtils';
 export function vehiclesFetchError(error) {
   return {
     type: 'VEHICLES_FETCH_DATA_ERROR',
-    error
+    error,
   };
 }
 
@@ -12,7 +12,7 @@ export function vehiclesFetchError(error) {
 export function vehiclesLoading(loading) {
   return {
     type: 'VEHICLES_LOADING',
-    loading
+    loading,
   };
 }
 
@@ -20,18 +20,18 @@ export function vehiclesLoading(loading) {
 export function vehiclesFetchDataSuccess(vehicles) {
   return {
     type: 'VEHICLES_FETCH_DATA_SUCCESS',
-    vehicles
+    vehicles,
   };
 }
 
 // Action creator for fetch initial data
 // Set status properties according to response
 export function vehiclesFetchData() {
-  return (dispatch) => {
+  return dispatch => {
     dispatch(vehiclesLoading(true));
 
     fetchVehicles()
-      .then((response) => {
+      .then(response => {
         if (response.error) {
           throw Error(response.error);
         }
@@ -40,9 +40,9 @@ export function vehiclesFetchData() {
 
         return response;
       })
-      .then((vehicles) => {
+      .then(vehicles => {
         dispatch(vehiclesFetchDataSuccess(vehicles));
       })
-      .catch(() => dispatch(vehiclesFetchError(true)))
+      .catch(() => dispatch(vehiclesFetchError(true)));
   };
 }

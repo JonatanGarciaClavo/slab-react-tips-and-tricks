@@ -6,6 +6,8 @@ import VehiclesList from './shared/components/VehiclesList';
 import Loader from './shared/components/Loader';
 import Error from './shared/components/Error';
 import { vehiclesFetchData } from './shared/actions/vehicles';
+import filteredVehicles from './shared/selectors/vehicles';
+import { setFilter } from './shared/actions/filters';
 
 class DevCase extends React.Component {
   // Fetch initial data
@@ -14,7 +16,7 @@ class DevCase extends React.Component {
   }
 
   render() {
-    const { loading, error } = this.props;
+    const { loading, error, vehicles, filters, handleFilterChange } = this.props;
 
     // Renders Loading component while fetching
     // Renders Error component if error status
@@ -27,8 +29,12 @@ class DevCase extends React.Component {
           <Loader />
         ) : (
           <div>
-            <FiltersList />
-            <VehiclesList />
+            <FiltersList
+              vehicles={vehicles}
+              filters={filters}
+              onFilterChange={handleFilterChange}
+            />
+            <VehiclesList vehicles={vehicles} />
           </div>
         )}
       </div>
@@ -40,12 +46,15 @@ const mapStateToProps = state => {
   return {
     error: state.vehicles.error,
     loading: state.vehicles.loading,
+    vehicles: filteredVehicles(state.vehicles.vehicles, state.filters),
+    filters: state.filters,
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchData: () => dispatch(vehiclesFetchData()),
+    handleFilterChange: (id, value) => dispatch(setFilter(id, value)),
   };
 };
 

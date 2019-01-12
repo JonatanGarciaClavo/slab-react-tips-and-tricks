@@ -1,5 +1,5 @@
 // Vehicles reducer
-const vehiclesReducerDefaultState = {
+export const vehiclesReducerDefaultState = {
   vehicles: [],
   error: false,
   loading: false,

@@ -1,21 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import '../styles/components/Filter.css';
-import { changeTypeFilter, changeBrandFilter, changeColorFilter } from '../actions/filters';
+import { TYPE, BRAND, COLORS } from '../constants';
 
 class Filter extends React.Component {
   // Handles the change of the filter value
   // Dispatches the correct action creator for the filter provided
-  onChangeFilter = e => {
+  handleFilterChange = e => {
     switch (this.props.filter) {
-      case 'type':
-        this.props.changeTypeFilter(e.target.value);
+      case TYPE:
+        this.props.onFilterChange(TYPE, e.target.value);
         break;
-      case 'brand':
-        this.props.changeBrandFilter(e.target.value);
+      case BRAND:
+        this.props.onFilterChange(BRAND, e.target.value);
         break;
-      case 'color':
-        this.props.changeColorFilter(e.target.value);
+      case COLORS:
+        this.props.onFilterChange(COLORS, e.target.value);
         break;
       default:
     }
@@ -30,7 +29,7 @@ class Filter extends React.Component {
         <label>Filter by {this.props.filter}</label>
         <select
           value={this.props.filterValue}
-          onChange={this.onChangeFilter}
+          onChange={this.handleFilterChange}
           disabled={this.props.filterValue}
         >
           <option value="">Show all</option>
@@ -42,21 +41,10 @@ class Filter extends React.Component {
             );
           })}
         </select>
-        {this.props.filterValue && <button onClick={this.onChangeFilter}>Clear filter</button>}
+        {this.props.filterValue && <button onClick={this.handleFilterChange}>Clear filter</button>}
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    changeTypeFilter: value => dispatch(changeTypeFilter(value)),
-    changeBrandFilter: value => dispatch(changeBrandFilter(value)),
-    changeColorFilter: value => dispatch(changeColorFilter(value)),
-  };
-};
-
-export default connect(
-  null,
-  mapDispatchToProps,
-)(Filter);
+export default Filter;

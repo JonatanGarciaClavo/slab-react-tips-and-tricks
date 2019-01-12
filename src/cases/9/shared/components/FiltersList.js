@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import '../styles/components/FiltersList.css';
 import Filter from './Filter';
-import filteredVehicles from '../selectors/vehicles';
+import { TYPE, BRAND, COLORS } from '../constants';
 
 export class FiltersList extends React.Component {
   // Returns an array without duplicated types
@@ -25,19 +24,27 @@ export class FiltersList extends React.Component {
     const { type, brand, color } = this.props.filters;
     return (
       <div className="filter-list-container">
-        <Filter filter={'type'} options={this.setTypesOptions()} filterValue={type} />
-        <Filter filter={'brand'} options={this.setBrandsOptions()} filterValue={brand} />
-        <Filter filter={'color'} options={this.setColorsOptions()} filterValue={color} />
+        <Filter
+          filter={TYPE}
+          options={this.setTypesOptions()}
+          filterValue={type}
+          onFilterChange={this.props.onFilterChange}
+        />
+        <Filter
+          filter={BRAND}
+          options={this.setBrandsOptions()}
+          filterValue={brand}
+          onFilterChange={this.props.onFilterChange}
+        />
+        <Filter
+          filter={COLORS}
+          options={this.setColorsOptions()}
+          filterValue={color}
+          onFilterChange={this.props.onFilterChange}
+        />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    vehicles: filteredVehicles(state.vehicles.vehicles, state.filters),
-    filters: state.filters,
-  };
-};
-
-export default connect(mapStateToProps)(FiltersList);
+export default FiltersList;

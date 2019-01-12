@@ -1,8 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import '../styles/components/VehiclesList.css';
 import VehicleCard from './VehicleCard';
-import filteredVehicles from '../selectors/vehicles';
 
 // Renders the list of vehicles visible
 // Shows a message if no vehicles available
@@ -22,10 +20,4 @@ export const VehiclesList = props => (
   </div>
 );
 
-const mapStateToProps = state => {
-  return {
-    vehicles: filteredVehicles(state.vehicles.vehicles, state.filters),
-  };
-};
-
-export default connect(mapStateToProps)(VehiclesList);
+export default VehiclesList;

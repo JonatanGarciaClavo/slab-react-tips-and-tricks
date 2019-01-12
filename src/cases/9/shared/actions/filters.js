@@ -1,22 +1,11 @@
 // Action creators for filters
 
-export function changeTypeFilter(value) {
+export function setFilter(id, value) {
   return {
-    type: 'CHANGE_TYPE_FILTER_VALUE',
-    value,
-  };
-}
-
-export function changeBrandFilter(value) {
-  return {
-    type: 'CHANGE_BRAND_FILTER_VALUE',
-    value,
-  };
-}
-
-export function changeColorFilter(value) {
-  return {
-    type: 'CHANGE_COLOR_FILTER_VALUE',
-    value,
+    type: 'SET_FILTER',
+    payload: {
+      id,
+      value,
+    },
   };
 }

@@ -149,6 +149,95 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 <p>We need a component that will display a list of characters and a button that will handle when display or not title in our list.</p>
 
 ---
+# Avoid unnecessary reconciliation
+
+<div style={{ marginTop: 80 }}>
+  <img src="https://media.giphy.com/media/TioDmIjphpJ5K/giphy.gif" />
+</div>
+
+---
+
+## Why avoid unnecessary reconciliation is so important?
+
+<ul>
+  <Appear>
+    <li>Reconciliation is how we call that action that decide when and how to re-render DOM.</li>
+    <li>Nobody wants to re-render things all time.</li>
+    <li>Seriously, you don't want to re-render your components if their DOM nodes are huge.</li>
+    <li>
+      Because of that, lets try to help reconciliation algorithm to take easy and fast decisions.
+    </li>
+  </Appear>
+</ul>
+
+---
+
+## So how we could avoid unnecesary reconciliations?
+
+<ul>
+  <Appear>
+    <li>shouldComponentUpdate()</li>
+    <li>PureComponent</li>
+    <li>memo</li>
+    <li>🚨 Stateless component functions work like React.Components 🚨</li>
+  </Appear>
+</ul>
+
+---
+
+<CodeSurfer
+  title="🚫 Arrow functions"
+  code={require('!raw-loader!./slide-examples/avoid-arrow-functions.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [4, 18], notes: 'check props' },
+    { range: [23, 33], notes: 'check props and class function' },
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="🚫 Objects and Arrays generation in props"
+  code={require('!raw-loader!./slide-examples/avoid-object-array.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 10], notes: 'check props' },
+    { range: [12, 13], notes: 'create a const outside of component' },
+    { range: [18, 21], notes: 'use previously const as props' },
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="🚫 Derived data in render"
+  code={require('!raw-loader!./slide-examples/derived-data.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 11] },
+    { range: [5, 7], notes: '😱 we are filtering our items each render 😱' },
+  ]}
+/>
+
+---
+
+# Demo Example 4
+
+---
+
+## Exercise 4
+
+<div>This exercise is a bit different compared with the other ones, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix them.</div>
+<div style={{marginTop: 40}}><strong>🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉</strong></div>
+
+---
 
 # Virtualize your heavy lists
 
@@ -273,96 +362,6 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 ## How does it works?
 
 // TODO: immutable data structure comparison and change.
-
----
-
-# Avoid unnecessary reconciliation
-
-<div style={{ marginTop: 80 }}>
-  <img src="https://media.giphy.com/media/TioDmIjphpJ5K/giphy.gif" />
-</div>
-
----
-
-## Why avoid unnecessary reconciliation is so important?
-
-<ul>
-  <Appear>
-    <li>Reconciliation is how we call that action that decide when and how to re-render DOM.</li>
-    <li>Nobody wants to re-render things all time.</li>
-    <li>Seriously, you don't want to re-render your components if their DOM nodes are huge.</li>
-    <li>
-      Because of that, lets try to help reconciliation algorithm to take easy and fast decisions.
-    </li>
-  </Appear>
-</ul>
-
----
-
-## So how we could avoid unnecesary reconciliations?
-
-<ul>
-  <Appear>
-    <li>shouldComponentUpdate()</li>
-    <li>PureComponent</li>
-    <li>memo</li>
-    <li>🚨 Stateless component functions work like React.Components 🚨</li>
-  </Appear>
-</ul>
-
----
-
-<CodeSurfer
-  title="🚫 Arrow functions"
-  code={require('!raw-loader!./slide-examples/avoid-arrow-functions.example')}
-  lang="javascript"
-  showNumbers
-  theme={vsDark}
-  steps={[
-    { range: [4, 18], notes: 'check props' },
-    { range: [23, 33], notes: 'check props and class function' },
-  ]}
-/>
-
----
-
-<CodeSurfer
-  title="🚫 Objects and Arrays generation in props"
-  code={require('!raw-loader!./slide-examples/avoid-object-array.example')}
-  lang="javascript"
-  showNumbers
-  theme={vsDark}
-  steps={[
-    { range: [1, 10], notes: 'check props' },
-    { range: [12, 13], notes: 'create a const outside of component' },
-    { range: [18, 21], notes: 'use previously const as props' },
-  ]}
-/>
-
----
-
-<CodeSurfer
-  title="🚫 Derived data in render"
-  code={require('!raw-loader!./slide-examples/derived-data.example')}
-  lang="javascript"
-  showNumbers
-  theme={vsDark}
-  steps={[
-    { range: [1, 11] },
-    { range: [5, 7], notes: '😱 we are filtering our items each render 😱' },
-  ]}
-/>
-
----
-
-# Demo Example 4
-
----
-
-## Exercise 4
-
-<div>This exercise is a bit different compared with the other ones, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix them.</div>
-<div style={{marginTop: 40}}><strong>🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉</strong></div>
 
 ---
 
@@ -611,33 +610,40 @@ What you need to complete is how to transform/normalize your cart items to be ab
 ### Let's transform previous class into function component with hooks
 
 ---
-
-<CodeSurfer
-  title="TODO class"
-  code={require('!raw-loader!./src/cases/8/example.js')}
-  lang="javascript"
-  showNumbers
-  theme={vsDark}
-  steps={[
-    { range: [10, 100], notes: 'todo class' },
-    { range: [11, 19], notes: 'constructor' },
-    { range: [30, 37], notes: 'componentDidMount' },
-    { range: [21, 29], notes: 'update function' },
-    { range: [38, 42], notes: 'componentDidUpdate' },
-    { range: [89, 119], notes: 'render' },
-    { range: [43, 47], notes: 'handleNewChange' },
-    { range: [48, 64], notes: 'handleNewSubmit' },
-    { range: [65, 71], notes: 'handleDelete' },
-    { range: [72, 82], notes: 'handleCompletedToggle' },
-    { range: [83, 87], notes: 'handleThemeChange' },
-  ]}
-/>
+<div style={{ fontSize: '20px' }}>
+  <CodeSurfer
+    title="TODO class"
+    code={require('!raw-loader!./src/cases/8/example.js')}
+    lang="javascript"
+    showNumbers
+    theme={vsDark}
+    steps={[
+      { range: [10, 100], notes: 'todo class' },
+      { range: [11, 19], notes: 'constructor' },
+      { range: [30, 37], notes: 'componentDidMount' },
+      { range: [21, 29], notes: 'update function' },
+      { range: [38, 42], notes: 'componentDidUpdate' },
+      { range: [89, 119], notes: 'render' },
+      { range: [43, 47], notes: 'handleNewChange' },
+      { range: [48, 64], notes: 'handleNewSubmit' },
+      { range: [65, 71], notes: 'handleDelete' },
+      { range: [72, 82], notes: 'handleCompletedToggle' },
+      { range: [83, 87], notes: 'handleThemeChange' },
+    ]}
+  />
+</div>
 
 ---
 
 # Exercise
 
 ### Let's transform previous class into function component with hooks
+
+---
+
+# Resources
+
+// TODO: Add link resources.
 
 ---
 

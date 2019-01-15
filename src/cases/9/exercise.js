@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect, useCallback } from 'react';
+import React, { useReducer, useEffect, useCallback, useMemo } from 'react';
 import './shared/styles/components/App.css';
 
 import FiltersList from './shared/components/FiltersList';
@@ -29,8 +29,14 @@ const DevCase = () => {
     filtersDispatch(setFilter(id, value));
   }, []);
 
-  const vehiclesFiltered = getVehiclesFiltered(vehicles, filters);
-  const filtersSettings = generateFiltersSettings(filters, vehicles);
+  const vehiclesFiltered = useMemo(() => getVehiclesFiltered(vehicles, filters), [
+    vehicles,
+    filters,
+  ]);
+  const filtersSettings = useMemo(() => generateFiltersSettings(filters, vehicles), [
+    filters,
+    vehicles,
+  ]);
 
   return (
     <div>

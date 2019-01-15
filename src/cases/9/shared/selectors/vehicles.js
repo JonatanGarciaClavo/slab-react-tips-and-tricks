@@ -1,10 +1,8 @@
-// Selector that returns the visible vehicles filtered with the provided filter values
-export default (vehicles, { type, brand, color }) => {
-  return vehicles.filter(vehicle => {
-    const typeMatch = type ? vehicle.type === type : true;
-    const brandMatch = brand ? vehicle.brand === brand : true;
-    const colorMatch = color ? vehicle.colors.indexOf(color) !== -1 : true;
+import { useMemo } from 'react';
+import { multiFilter } from '../utils';
 
-    return typeMatch && brandMatch && colorMatch;
-  });
-};
+/**
+ * Function selector to provide array of vehicles filtered from storage
+ */
+export const getVehiclesFiltered = (vehicles, filters) =>
+  useMemo(() => multiFilter(vehicles, filters), [vehicles, filters]);

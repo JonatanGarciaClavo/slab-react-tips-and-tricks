@@ -1,9 +1,7 @@
 import React from 'react';
 import '../styles/components/VehicleCard.css';
 
-export const VehicleCard = props => {
-  const { brand, colors, img, type } = props;
-
+export const VehicleCard = ({ brand, colors, img, type }) => {
   const styles = {
     background: `url(${img}) no-repeat`,
     backgroundSize: 'cover',
@@ -32,4 +30,4 @@ export const VehicleCard = props => {
   );
 };
 
-export default VehicleCard;
+export default React.memo(VehicleCard);

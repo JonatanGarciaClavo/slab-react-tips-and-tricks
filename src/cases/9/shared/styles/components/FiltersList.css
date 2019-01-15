@@ -1,11 +1,10 @@
 /* Filter list container styles */
 .filter-list-container {
-  background: #d8edea;
+  background: #ffb347;
   border-bottom: 1px solid #dddddd;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  margin-top: 4rem;
   padding: 1rem;
   width: 100%;
 }

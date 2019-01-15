@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import './shared/styles/components/App.css';
 import FiltersList from './shared/components/FiltersList';
 import VehiclesList from './shared/components/VehiclesList';
 import Loader from './shared/components/Loader';
 import Error from './shared/components/Error';
+
 import { vehiclesFetchData } from './shared/actions/vehicles';
-import filteredVehicles from './shared/selectors/vehicles';
 import { setFilter } from './shared/actions/filters';
+import { getVehiclesFiltered } from './shared/selectors/vehicles';
+import { generateFiltersSettings } from './shared/selectors/filters';
 
 class DevCase extends React.Component {
   // Fetch initial data
@@ -16,7 +19,7 @@ class DevCase extends React.Component {
   }
 
   render() {
-    const { loading, error, vehicles, filters, handleFilterChange } = this.props;
+    const { loading, error, vehicles, filtersSettings, handleFilterChange } = this.props;
 
     // Renders Loading component while fetching
     // Renders Error component if error status
@@ -29,11 +32,7 @@ class DevCase extends React.Component {
           <Loader />
         ) : (
           <div>
-            <FiltersList
-              vehicles={vehicles}
-              filters={filters}
-              onFilterChange={handleFilterChange}
-            />
+            <FiltersList filtersSettings={filtersSettings} onFilterChange={handleFilterChange} />
             <VehiclesList vehicles={vehicles} />
           </div>
         )}
@@ -46,8 +45,8 @@ const mapStateToProps = state => {
   return {
     error: state.vehicles.error,
     loading: state.vehicles.loading,
-    vehicles: filteredVehicles(state.vehicles.vehicles, state.filters),
-    filters: state.filters,
+    vehicles: getVehiclesFiltered(state.vehicles.vehicles, state.filters),
+    filtersSettings: generateFiltersSettings(state.filters, state.vehicles.vehicles),
   };
 };
 

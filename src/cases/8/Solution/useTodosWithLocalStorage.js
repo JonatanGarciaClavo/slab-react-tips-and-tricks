@@ -30,12 +30,9 @@ export default function(defaultValue) {
         return state;
     }
   }, useMemo(initialValue, []));
-  useEffect(
-    () => {
-      window.localStorage.setItem(TODOS_LOCAL_STORAGE_KEY, JSON.stringify(todos));
-    },
-    [todos],
-  );
+  useEffect(() => {
+    window.localStorage.setItem(TODOS_LOCAL_STORAGE_KEY, JSON.stringify(todos));
+  }, [todos]);
   const addTodo = newTodo =>
     dispatch({
       type: ADD_TODO,

@@ -54,7 +54,7 @@ const DevCase = () => {
         <Loader />
       ) : (
         <div>
-          <FiltersList filtersSettings={filtersSettings} onFilterChange={handleFilterChange} />
+          <FiltersList settings={filtersSettings} onFilterChange={handleFilterChange} />
           <VehiclesList vehicles={vehiclesFiltered} />
         </div>
       )}

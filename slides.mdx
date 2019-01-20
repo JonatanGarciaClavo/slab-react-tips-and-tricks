@@ -620,17 +620,17 @@ What you need to complete is how to transform/normalize your cart items to be ab
     showNumbers
     theme={vsDark}
     steps={[
-      { range: [10, 100], notes: 'todo class' },
-      { range: [11, 19], notes: 'constructor' },
-      { range: [30, 37], notes: 'componentDidMount' },
-      { range: [21, 29], notes: 'update function' },
-      { range: [38, 42], notes: 'componentDidUpdate' },
-      { range: [89, 119], notes: 'render' },
-      { range: [43, 47], notes: 'handleNewChange' },
-      { range: [48, 64], notes: 'handleNewSubmit' },
-      { range: [65, 71], notes: 'handleDelete' },
-      { range: [72, 82], notes: 'handleCompletedToggle' },
-      { range: [83, 87], notes: 'handleThemeChange' },
+      { range: [10, 107], notes: 'todo class' },
+      { range: [12, 20], notes: 'constructor' },
+      { range: [26, 31], notes: 'componentDidMount' },
+      { range: [21, 25], notes: 'update function' },
+      { range: [32, 36], notes: 'componentDidUpdate' },
+      { range: [80, 106], notes: 'render' },
+      { range: [37, 41], notes: 'handleNewChange' },
+      { range: [42, 58], notes: 'handleNewSubmit' },
+      { range: [59, 65], notes: 'handleDelete' },
+      { range: [66, 74], notes: 'handleCompletedToggle' },
+      { range: [75, 79], notes: 'handleThemeChange' },
     ]}
   />
 </div>
@@ -639,13 +639,85 @@ What you need to complete is how to transform/normalize your cart items to be ab
 
 # Exercise
 
-### Let's transform previous class into function component with hooks
+### Let's transform Todo class into function component with hooks
+
+---
+
+<div style={{ fontSize: '20px' }}>
+  <CodeSurfer
+    title="DevCase class"
+    code={require('!raw-loader!./src/cases/9/example.js')}
+    lang="javascript"
+    showNumbers
+    theme={vsDark}
+    steps={[
+      { range: [15, 59], notes: 'DevCase class' },
+      { range: [40, 47], notes: 'mapStateToProps' },
+      { range: [49, 54], notes: 'mapDispatchToProps' },
+      { range: [16, 18], notes: 'componentDidMount' },
+      { range: [20, 38], notes: 'render' },
+    ]}
+  />
+</div>
+
+---
+
+# Exercise
+
+### Let's transform DevCase class into function component with hooks
 
 ---
 
 # Resources
 
-// TODO: Add link resources.
+<ul>
+  <li>
+    <a href="http://www.benmvp.com/slides/2018/reactalicante/react-perf.html#/">
+      Help! My React app is slow!(slides)
+    </a>
+  </li>
+  <li>
+    <a href="https://youtu.be/LBzJFcZsPBQ">Help! My React app is slow!(video)</a>
+  </li>
+  <li>
+    <a href="https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html">
+      Introducing the React Profiler
+    </a>
+  </li>
+  <li>
+    <a href="https://building.calibreapp.com/debugging-react-performance-with-react-16-and-chrome-devtools-c90698a522ad?gi=7c59055e576d">
+      Profiling React performance with React 16 and Chrome Devtools.
+    </a>
+  </li>
+  <li>
+    <a href="https://reactjs.org/docs/optimizing-performance.html">Optimizing Performance</a>
+  </li>
+  <li>
+    <a href="https://evilmartians.com/chronicles/optimizing-react-virtual-dom-explained">
+      Optimizing React: Virtual DOM explained
+    </a>
+  </li>
+  <li>
+    <a href="https://reactjs.org/docs/hooks-intro.html">Introducing Hooks</a>
+  </li>
+  <li>
+    <a href="https://reactjs.org/docs/hooks-reference.html">Hooks API Reference</a>
+  </li>
+  <li>
+    <a href="https://github.com/kentcdodds/modern-react">Modern React</a>
+  </li>
+  <li>
+    <a href="https://github.com/streamich/react-use">Hooks utils/examples</a>
+  </li>
+  <li>
+    <a href="https://egghead.io/courses/reusable-state-and-effects-with-react-hooks">
+      Reusable State and Effects with React Hooks
+    </a>
+  </li>
+  <li>
+    <a href="https://nikgraf.github.io/react-hooks/">Collection of React Hooks</a>
+  </li>
+</ul>
 
 ---
 

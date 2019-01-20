@@ -13,7 +13,6 @@ import { getVehiclesFiltered } from './shared/state/vehicles/selectors';
 import { generateFiltersSettings } from './shared/state/filters/selectors';
 
 class DevCase extends React.Component {
-  // Fetch initial data
   componentDidMount() {
     this.props.fetchData();
   }
@@ -21,9 +20,6 @@ class DevCase extends React.Component {
   render() {
     const { loading, error, vehicles, filtersSettings, handleFilterChange } = this.props;
 
-    // Renders Loading component while fetching
-    // Renders Error component if error status
-    // Renders the container components when fetch is successful
     return (
       <div>
         {error ? (
@@ -32,7 +28,7 @@ class DevCase extends React.Component {
           <Loader />
         ) : (
           <div>
-            <FiltersList filtersSettings={filtersSettings} onFilterChange={handleFilterChange} />
+            <FiltersList settings={filtersSettings} onFilterChange={handleFilterChange} />
             <VehiclesList vehicles={vehicles} />
           </div>
         )}

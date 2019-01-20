@@ -2,9 +2,9 @@ import React from 'react';
 import '../styles/components/FiltersList.css';
 import Filter from './Filter';
 
-const FiltersList = ({ filtersSettings, onFilterChange }) => (
+const FiltersList = ({ settings, onFilterChange }) => (
   <div className="filter-list-container">
-    {filtersSettings.map(({ id, options, selectedValue, inputLabel }) => (
+    {settings.map(({ id, options, selectedValue, inputLabel }) => (
       <Filter
         key={id}
         id={id}

@@ -1,4 +1,5 @@
-import React, { useReducer, useEffect, useCallback, useMemo } from 'react';
+// import React, { useReducer, useEffect, useCallback, useMemo } from 'react';
+import React from 'react';
 import './shared/styles/components/App.css';
 
 import FiltersList from './shared/components/FiltersList';
@@ -6,37 +7,22 @@ import VehiclesList from './shared/components/VehiclesList';
 import Loader from './shared/components/Loader';
 import Error from './shared/components/Error';
 
-import { vehiclesFetchData } from './shared/actions/vehicles';
-import { setFilter } from './shared/actions/filters';
+// ℹ️ uncomment this code ones you use it
+// import { vehiclesFetchData } from './shared/state/vehicles/actions';
+// import { setFilter } from './shared/state/filters/actions';
 
-import vehiclesReducer, { vehiclesReducerDefaultState } from './shared/reducers/vehicles';
-import filtersReducer, { filtersReducerDefaultState } from './shared/reducers/filters';
+// import vehiclesReducer, { vehiclesReducerDefaultState } from './shared/state/vehicles/reducer';
+// import filtersReducer, { filtersReducerDefaultState } from './shared/state/filters/reducer';
 
-import { getVehiclesFiltered } from './shared/selectors/vehicles';
-import { generateFiltersSettings } from './shared/selectors/filters';
+// import { getVehiclesFiltered } from './shared/state/vehicles/selectors';
+// import { generateFiltersSettings } from './shared/state/filters/selectors';
 
 const DevCase = () => {
-  const [{ vehicles, error, loading }, vehiclesDispatch] = useReducer(
-    vehiclesReducer,
-    vehiclesReducerDefaultState,
-  );
-  const [filters, filtersDispatch] = useReducer(filtersReducer, filtersReducerDefaultState);
-
-  useEffect(() => {
-    vehiclesFetchData()(vehiclesDispatch);
-  }, []);
-  const handleFilterChange = useCallback((id, value) => {
-    filtersDispatch(setFilter(id, value));
-  }, []);
-
-  const vehiclesFiltered = useMemo(() => getVehiclesFiltered(vehicles, filters), [
-    vehicles,
-    filters,
-  ]);
-  const filtersSettings = useMemo(() => generateFiltersSettings(filters, vehicles), [
-    filters,
-    vehicles,
-  ]);
+  const error = false;
+  const loading = true;
+  const filtersSettings = [];
+  const handleFilterChange = () => {};
+  const vehiclesFiltered = [];
 
   return (
     <div>

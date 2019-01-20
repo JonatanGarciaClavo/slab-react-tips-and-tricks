@@ -1,9 +1,14 @@
-import { fetchVehicles } from '../service/apiUtils';
+import {
+  VEHICLES_FETCH_DATA_ERROR,
+  VEHICLES_LOADING,
+  VEHICLES_FETCH_DATA_SUCCESS,
+} from './constants.';
+import { fetchVehicles } from '../../service/apiUtils';
 
 // Action creator for setting fetch error status property
 export function vehiclesFetchError(error) {
   return {
-    type: 'VEHICLES_FETCH_DATA_ERROR',
+    type: VEHICLES_FETCH_DATA_ERROR,
     error,
   };
 }
@@ -11,7 +16,7 @@ export function vehiclesFetchError(error) {
 // Action creator for setting loading status property
 export function vehiclesLoading(loading) {
   return {
-    type: 'VEHICLES_LOADING',
+    type: VEHICLES_LOADING,
     loading,
   };
 }
@@ -19,7 +24,7 @@ export function vehiclesLoading(loading) {
 // Action creator for setting vehicles data
 export function vehiclesFetchDataSuccess(vehicles) {
   return {
-    type: 'VEHICLES_FETCH_DATA_SUCCESS',
+    type: VEHICLES_FETCH_DATA_SUCCESS,
     vehicles,
   };
 }

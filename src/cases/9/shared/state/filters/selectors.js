@@ -1,11 +1,14 @@
-import { getVehiclesFiltered } from './vehicles';
-import { TYPE, BRAND, COLORS } from '../constants';
-import { createFilterOptions, capitalizeFirstLetter } from '../utils';
+import { getVehiclesFiltered } from '../vehicles/selectors';
+import { TYPE, BRAND, COLORS } from './constants';
+import { createFilterOptions, capitalizeFirstLetter } from '../../utils';
 
 /**
- * Function selector to provide filter data given a filter key
+ * Given a filterKey(TYPE, BRAND or COLORS) and array of vehicles and filter state
+ * calculate filter options that will be displayed in the filter select component
  *
- * (type) => ["car", "airplane", "train"]
+ * @param {String} filterKey
+ * @param {Array} vehiclesState
+ * @param {Object} filters
  */
 const calculateFilterOptions = (filterKey, vehiclesState, filters) => {
   const vehicles = getVehiclesFiltered(vehiclesState, filters);
@@ -31,6 +34,9 @@ const calculateFilterOptions = (filterKey, vehiclesState, filters) => {
 /**
  * Function selector to provide vehicles filter data, this is composition of all filters for vehicles
  * like type, brand, colors and return an array of all data needed in filters views
+ *
+ * @param {Object} filters
+ * @param {Array} vehicles
  */
 export const generateFiltersSettings = (filters, vehicles) => {
   const typeValues = calculateFilterOptions(TYPE, vehicles, filters);

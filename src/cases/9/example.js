@@ -7,10 +7,10 @@ import VehiclesList from './shared/components/VehiclesList';
 import Loader from './shared/components/Loader';
 import Error from './shared/components/Error';
 
-import { vehiclesFetchData } from './shared/actions/vehicles';
-import { setFilter } from './shared/actions/filters';
-import { getVehiclesFiltered } from './shared/selectors/vehicles';
-import { generateFiltersSettings } from './shared/selectors/filters';
+import { vehiclesFetchData } from './shared/state/vehicles/actions';
+import { setFilter } from './shared/state/filters/actions';
+import { getVehiclesFiltered } from './shared/state/vehicles/selectors';
+import { generateFiltersSettings } from './shared/state/filters/selectors';
 
 class DevCase extends React.Component {
   // Fetch initial data

@@ -1,51 +1,99 @@
 /**
  * Exercise 3
  *
- * The purpose of this exercise is to implement a virtualized version for the list that we display.
+ * This exercise it is a bit different compared with other ones, in this case you need to apply all tips
+ * and techniques learned before. That means you need to find and identify issues and try to fix it.
  *
- * 1) 📥 Import the required elements from the 'react-virtualized' library.
- * 2) 🏗 Recreate the list we actually have with the new virtualized component. Special attention for
- *    the rowRenderer method.
- * 3) ☝️ Replace the list for the new one in the main component.
- * 4) 🎖 Extra bonus points for using the previously created withToggle HOC to build a toggle system
- *    to switch between the two lists.
- *
- * 👉 Don't forget to check the documentation for more info
- *    https://github.com/bvaughn/react-virtualized/tree/master/docs#documentation
+ * 🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉
  */
 import React from 'react';
-import { Box, Flex } from 'rebass';
-import { PersonaList } from '../../components/Persona';
-import { generateItemsPersonas } from '../../utils';
+import { Box, Flex, Button, Text } from 'rebass';
+import { generateRandomNumber, generateListItems, generateRandomColor } from '../../utils';
 
-const ListItem = ({ persona, style }) => (
-  <Box style={style} key={persona.id}>
-    <PersonaList {...persona} />
+const ListItem = ({ item }) => (
+  <Box my={2} style={{ backgroundColor: generateRandomColor() }}>
+    <Flex p={10} alignItems="center">
+      <Box>
+        <Text mx={2}>{item.text}</Text>
+      </Box>
+      <Flex width={1} justifyContent="flex-end">
+        {item.isActive ? (
+          <span role="img" aria-label="active">
+            ✅
+          </span>
+        ) : (
+          <span role="img" aria-label="inactive">
+            ❌
+          </span>
+        )}
+      </Flex>
+    </Flex>
   </Box>
 );
 
-const FlatList = ({ personas }) => (
-  <Box>
-    {personas.map(persona => (
-      <ListItem key={persona.id} persona={persona} />
+// const MemoListItem = React.memo(ListItem);
+
+const List = ({ items }) => (
+  <Box my={10}>
+    {items.map(item => (
+      <ListItem key={item.id} item={item} />
     ))}
   </Box>
 );
 
-const Exercise3 = ({ personas }) => (
-  <Flex alignItems="center" flexDirection="column">
-    <Box width={1}>
-      <FlatList personas={personas} />
-    </Box>
-  </Flex>
+const NumberOfItemsBar = ({ buttons, onClick }) => (
+  <Box my={10}>
+    {buttons.map(numItems => (
+      <Button
+        mx={1}
+        variant="outline"
+        onClick={() => {
+          onClick(numItems);
+        }}
+      >
+        {numItems}
+      </Button>
+    ))}
+  </Box>
 );
 
-/**
- *  📝 Generates by default a list with 100 random 'personas'. Play with this adjustments to see
- *  the difference in performance for longer lists.
- */
-Exercise3.defaultProps = {
-  personas: generateItemsPersonas(100),
-};
+class Exercise3 extends React.Component {
+  state = {
+    items: generateListItems(5),
+  };
+  handleButtonClick = () => {
+    this.setState(({ items }) => {
+      const randomIndex = generateRandomNumber(items.length - 1, 0);
+      return {
+        items: items.map((item, index) =>
+          index === randomIndex ? { ...item, isActive: !item.isActive } : item,
+        ),
+      };
+    });
+  };
+  render() {
+    const { items } = this.state;
+    return (
+      <Flex alignItems="center" flexDirection="column">
+        <Box mx={30}>
+          <NumberOfItemsBar
+            buttons={[3, 5, 8, 13]}
+            onClick={numItems => {
+              this.setState({
+                items: generateListItems(numItems),
+              });
+            }}
+          />
+        </Box>
+        <Box mx={30}>
+          <Button onClick={this.handleButtonClick}>Random toggle</Button>
+        </Box>
+        <Box mx={30}>
+          <List items={items} />
+        </Box>
+      </Flex>
+    );
+  }
+}
 
 export default Exercise3;

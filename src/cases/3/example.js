@@ -1,48 +1,66 @@
-/* eslint-disable prettier/prettier */
 import React from 'react';
-import { Box, Flex } from 'rebass';
-import { Grid } from 'react-virtualized';
-import { PersonaGrid } from '../../components/Persona';
-import { generateItemsPersonas } from '../../utils';
+import { Box, Flex, Button, Text } from 'rebass';
+import { generateRandomNumber, generateListItems, generateRandomColor } from '../../utils';
 
-const personas = generateItemsPersonas(5000);
-
-const ListItem = ({ persona, style }) => (
-  <Box style={style} key={persona.id}>
-    <PersonaGrid {...persona} />
-  </Box>
-);
-
-const cellRenderer = ({ columnIndex, rowIndex, style }) => (
-  <ListItem persona={personas[rowIndex * 4 + columnIndex]} style={style} />
-);
-
-const VirtualizedGrid = ({ personas }) => (
-  <Box>
-    <Grid
-      cellRenderer={cellRenderer}
-      columnCount={4}
-      columnWidth={200}
-      height={600}
-      rowCount={personas.length / 4}
-      rowHeight={240}
-      width={800}
-    />
-  </Box>
-);
-
-const Example3 = ({ personas }) => (
-  <Flex alignItems="center" flexDirection="column">
-    <Flex width={1} justifyContent="center">
-      <VirtualizedGrid personas={personas} />
+const ListItem = ({ item }) => (
+  <Box my={2} style={{ backgroundColor: generateRandomColor() }}>
+    <Flex p={10} alignItems="center">
+      <Box>
+        <Text mx={2}>{item.text}</Text>
+      </Box>
+      <Flex width={1} justifyContent="flex-end">
+        {item.isActive ? (
+          <span role="img" aria-label="active">
+            ✅
+          </span>
+        ) : (
+          <span role="img" aria-label="inactive">
+            ❌
+          </span>
+        )}
+      </Flex>
     </Flex>
-  </Flex>
+  </Box>
 );
 
-Example3.defaultProps = {
-  personas,
-};
+// const MemoListItem = React.memo(ListItem);
 
-Example3.title = 'Virtualized example';
+const List = ({ items }) => (
+  <Box my={10}>
+    {items.map(item => (
+      <ListItem key={item.id} item={item} />
+    ))}
+  </Box>
+);
 
+class Example3 extends React.Component {
+  state = {
+    items: generateListItems(10),
+  };
+  handleButtonClick = () => {
+    this.setState(({ items }) => {
+      const randomIndex = generateRandomNumber(items.length - 1, 0);
+      return {
+        items: items.map((item, index) =>
+          index === randomIndex ? { ...item, isActive: !item.isActive } : item,
+        ),
+      };
+    });
+  };
+  render() {
+    const { items } = this.state;
+    return (
+      <Flex alignItems="center" flexDirection="column">
+        <Box mx={30}>
+          <Button onClick={this.handleButtonClick}>Random toggle</Button>
+        </Box>
+        <Box mx={30}>
+          <List items={items} />
+        </Box>
+      </Flex>
+    );
+  }
+}
+
+Example3.title = 'Avoid unnecessary reconciliation example';
 export default Example3;

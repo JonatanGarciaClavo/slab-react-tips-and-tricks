@@ -1,114 +1,85 @@
 /**
  * Exercise 4
  *
- * This exercise it is a bit different compared with other ones, in this case you need to apply all tips
- * and techniques learned before. That means you need to find and identify issues and try to fix it.
+ * The purpose of this exercise is to implement a virtualized version for the list that we display.
  *
- * 🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉
+ * 1) 📥 Import the required elements from the 'react-virtualized' library.
+ * 2) 🏗 Recreate the list we actually have with the new virtualized component. Special attention for
+ *    the rowRenderer method.
+ * 3) ☝️ Replace the list for the new one in the main component.
+ * 4) 🎖 Extra bonus points for using the previously created withToggle HOC to build a toggle system
+ *    to switch between the two lists.
+ *
+ * 👉 Don't forget to check the documentation for more info
+ *    https://github.com/bvaughn/react-virtualized/tree/master/docs#documentation
  */
 import React from 'react';
-import { Box, Flex, Button, Text } from 'rebass';
-import { generateRandomNumber, generateListItems, generateRandomColor } from '../../utils';
+import { Box, Flex, Button } from 'rebass';
+import { List } from 'react-virtualized';
+import { PersonaList } from '../../components/Persona';
+import { generateItemsPersonas } from '../../utils';
+import withToggle from '../../components/withToggle';
 
-// 📝 remember that arrays and objects inside of render functions are created each time
-//    that component has to be re-rendered aka new ref will be generated
-const NUMBER_ITEMS = [3, 5, 8, 13];
-
-const ListItem = ({ item }) => (
-  <Box my={2} style={{ backgroundColor: generateRandomColor() }}>
-    <Flex p={10} alignItems="center">
-      <Box>
-        <Text mx={2}>{item.text}</Text>
-      </Box>
-      <Flex width={1} justifyContent="flex-end">
-        {item.isActive ? (
-          <span role="img" aria-label="active">
-            ✅
-          </span>
-        ) : (
-          <span role="img" aria-label="inactive">
-            ❌
-          </span>
-        )}
-      </Flex>
-    </Flex>
+const ListItem = ({ persona, style }) => (
+  <Box style={style} key={persona.id}>
+    <PersonaList {...persona} />
   </Box>
 );
 
-const MemoListItem = React.memo(ListItem);
-
-const List = ({ items }) => (
-  <Box my={10}>
-    {items.map(item => (
-      <MemoListItem key={item.id} item={item} />
+/**
+ * Flat List that will display the list of all personas.
+ * @param {Object} props
+ */
+const FlatList = ({ personas }) => (
+  <Box>
+    {personas.map(persona => (
+      <ListItem key={persona.id} persona={persona} />
     ))}
   </Box>
 );
 
 /**
- * 📝 To avoid new function reference each render, create a bind function
- *    to be created ones and reuse that reference each time
+ * Virtualized List that will display the list of personas rendering only the ones actually visible.
+ * @param {Object} props
  */
-class NumberButton extends React.PureComponent {
-  handleButtonClick = () => {
-    const { number, onClick } = this.props;
-    onClick(number);
-  };
-
-  render() {
-    return (
-      <Button mx={1} variant="outline" onClick={this.handleButtonClick}>
-        {this.props.number}
-      </Button>
-    );
-  }
-}
-
-const NumberOfItemsBar = ({ buttons, onClick }) => (
-  <Box my={10}>
-    {buttons.map(number => (
-      <NumberButton number={number} onClick={onClick} />
-    ))}
+const VirtualizedList = ({ personas }) => (
+  <Box>
+    <List
+      height={500}
+      rowCount={personas.length}
+      rowHeight={105}
+      // ❗️rowRenderer function will determine the composition of the different rows in the list
+      rowRenderer={({ index, style }) => (
+        <ListItem key={index} persona={personas[index]} style={style} />
+      )}
+      width={610}
+    />
   </Box>
 );
 
-class Exercise4 extends React.Component {
-  state = {
-    items: generateListItems(5),
-  };
-  handleButtonClick = () => {
-    this.setState(({ items }) => {
-      const randomIndex = generateRandomNumber(items.length - 1, 0);
-      return {
-        items: items.map((item, index) =>
-          index === randomIndex ? { ...item, isActive: !item.isActive } : item,
-        ),
-      };
-    });
-  };
-  // 📝 we created this bind function to avoid create it each time this component re render
-  handleNumberOfItemsClick = numItems => {
-    this.setState({
-      items: generateListItems(numItems),
-    });
-  };
-  render() {
-    const { items } = this.state;
-    return (
-      <Flex alignItems="center" flexDirection="column">
-        <Box mx={30}>
-          <NumberOfItemsBar buttons={NUMBER_ITEMS} onClick={this.handleNumberOfItemsClick} />
-        </Box>
-        <Box mx={30}>
-          <Button onClick={this.handleButtonClick}>Random toggle</Button>
-        </Box>
-        <Box mx={30}>
-          <List items={items} />
-        </Box>
-      </Flex>
-    );
-  }
-}
+/**
+ * Component that will display one the flat list or the virtualized list depending of the
+ * state of the toggle.
+ * @param {Object} props
+ */
+const Exercise4 = ({ isActive, toggle, personas }) => (
+  <Flex alignItems="center" flexDirection="column">
+    <Box my={3}>
+      <Button onClick={toggle}>{isActive ? 'Show Flat list' : 'Show Virtualized list'}</Button>
+    </Box>
+    <Box width={1}>
+      {isActive ? <VirtualizedList personas={personas} /> : <FlatList personas={personas} />}
+    </Box>
+  </Flex>
+);
 
-Exercise4.title = 'Find the errors and fix it';
-export default Exercise4;
+Exercise4.defaultProps = {
+  personas: generateItemsPersonas(100),
+};
+
+// 👌 Imported and wrapped into the withToggle HOC
+const Enhanced = withToggle(Exercise4, false);
+
+Enhanced.title = 'Play with Virtualized';
+
+export default Enhanced;

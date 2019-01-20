@@ -46,7 +46,9 @@ export const selectorsExampleReducer = (state = initialState, action) => {
       return state;
   }
 };
+
 const selectSelectorsExampleDomain = state => state.selectorsExample;
+
 const makeSelectFilter = createSelector(
   selectSelectorsExampleDomain,
   ({ filter }) => filter,

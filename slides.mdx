@@ -234,11 +234,11 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ---
 
-# Demo Example 4
+# Demo Example 3
 
 ---
 
-## Exercise 4
+## Exercise 3
 
 <div>This exercise is a bit different compared with the other ones, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix them.</div>
 <div style={{marginTop: 40}}><strong>🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉</strong></div>
@@ -284,24 +284,40 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ---
 
-<CodeSurfer
-  title="Example 3"
-  code={require('!raw-loader!./src/cases/3/example.js')}
-  lang="javascript"
-  showNumbers
-  theme={vsDark}
-  steps={[
-    {},
-    { range: [6, 8], notes: 'generate list of 5000 personas' },
-    { range: [36, 41], notes: 'render' },
-    { range: [22, 34], notes: 'Virtualized grid component' },
-    { range: [15, 20], notes: 'Cell renderer function' },
-  ]}
-/>
+<div style={{ fontSize: '20px' }}>
+  <CodeSurfer
+    title="Example 4"
+    code={require('!raw-loader!./src/cases/4/example.js')}
+    lang="javascript"
+    showNumbers
+    theme={vsDark}
+    steps={[
+      {},
+      { range: [7, 9], notes: 'generate list of 5000 personas' },
+      { range: [34, 40], notes: 'render' },
+      { range: [20, 32], notes: 'Virtualized grid component' },
+      { range: [16, 18], notes: 'Cell renderer function' },
+    ]}
+  />
+</div>
 
 ---
 
-## Exercise 3
+## React window
+
+<Appear>
+<div>Is a modern complete rewrite of React Virtualized</div>
+<div style={{marginTop: 40}}>👉 <a href="https://react-window.now.sh" target="_blank">react-window</a></div>
+<div style={{fontStyle: 'italic', marginTop: 40}}>
+  "I didn't try to solve as many problems or support as many use cases.
+  Instead I focused on making the package smaller and faster. 
+  I also put a lot of thought into making the API as beginner-friendly as possible."
+</div>
+</Appear>
+
+---
+
+## Exercise 4
 
 <div style={{ fontSize: '36px' }}>
   The purpose of this exercise is to implement a virtualized version for the list that we display.

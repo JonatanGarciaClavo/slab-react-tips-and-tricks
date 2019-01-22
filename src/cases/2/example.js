@@ -28,4 +28,6 @@ class Example2 extends React.PureComponent {
   }
 }
 
+Example2.title = 'HoCs example';
+
 export default Example2;

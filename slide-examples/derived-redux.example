@@ -1,0 +1,8 @@
+const getVisibleTodos = (todos, filter) => {
+  // filters `todos` array by `filter` string
+}
+const mapStateToProps = (state) => ({
+  todos: getVisibleTodos(state.todos, state.filter)
+})
+
+export default connect(mapStateToProps)(TodoList)

@@ -1,0 +1,34 @@
+import React from 'react';
+
+class Bad extends React.Component {
+  render() {
+    return (
+      <div>
+        <FilterSelector
+          onChange={filter => {
+            this.props.handleFilterChange(filter);
+          }}
+        />
+        <Table
+          onSelectedRow={(row, data) => {
+            this.props.handleSelectedRowData(data);
+          }}
+        />
+      </div>
+    );
+  }
+}
+
+class Good extends React.Component {
+  handleSelectedRowData = (row, data) => {
+    this.props.onSelectRowData(data);
+  };
+  render() {
+    return (
+      <div>
+        <FilterSelector onChange={this.props.handleFilterChange} />
+        <Table onSelectedRow={this.handleSelectedRowData} />
+      </div>
+    );
+  }
+}

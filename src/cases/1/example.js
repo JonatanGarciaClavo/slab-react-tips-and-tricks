@@ -34,4 +34,6 @@ class Example1 extends React.PureComponent {
   }
 }
 
+Example1.title = 'Keys example';
+
 export default Example1;

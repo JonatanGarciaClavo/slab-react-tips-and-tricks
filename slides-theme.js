@@ -10,4 +10,19 @@ export default {
     text: '#222A36',
     background: '#FBFBFB',
   },
+  css: {
+    fontSize: '16px',
+    textAlign: 'center',
+    '@media screen and (min-width:64em)': {
+      fontSize: '32px',
+    },
+    ul: {
+      textAlign: 'left',
+      marginTop: '80px',
+    },
+    ol: {
+      textAlign: 'left',
+      marginTop: '80px',
+    },
+  },
 };

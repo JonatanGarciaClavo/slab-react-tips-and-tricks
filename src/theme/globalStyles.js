@@ -1,13 +1,32 @@
 import { createGlobalStyle } from 'styled-components/macro';
 
+export const orange = '#E9842E';
+
 export const theme = {
   colors: {
-    blue: '#E9842E',
-    lightgray: '#1A2533',
+    blue: orange,
+    lightgray: '#F3F3F3',
+    darkgray: '#1A2533',
+  },
+  buttons: {
+    primary: {
+      color: '#fff',
+      backgroundColor: orange,
+    },
+    outline: {
+      color: orange,
+      backgroundColor: 'transparent',
+      boxShadow: 'inset 0 0 0 2px',
+    },
   },
   fonts: {
     sans: 'Roboto, system-ui, sans-serif',
     mono: 'Menlo, monospace',
+  },
+  fontSizes: {
+    2: '1.25rem',
+    3: '1.5rem',
+    4: '1.75rem',
   },
 };
 

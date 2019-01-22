@@ -1,0 +1,72 @@
+/* Vehicle card styles */
+.card-container {
+  box-sizing: border-box;
+  float: left;
+  padding: 1em;
+  width: 25%;
+  -webkit-box-sizing: border-box;
+}
+
+.card-info-wrapper {
+  background: #ebf6f4;
+  border: 1px solid #dddddd;
+}
+
+.image-placeholder {
+  background: url('../assets/picture.png') no-repeat center center #dddddd;
+  background-size: 4rem;
+}
+.image-container {
+  height: 10rem;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+}
+
+.info-container {
+  padding: 1rem;
+}
+
+.info-container h3 {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.info-container p {
+  margin: 0.5rem 0;
+  text-transform: capitalize;
+}
+
+.info-container .color-shape {
+  border: 1px solid #cccccc;
+  border-radius: 50%;
+  display: inline-block;
+  height: 1rem;
+  margin-right: 0.5rem;
+  opacity: 0.75;
+  width: 1rem;
+}
+
+/* Distribution of the cards for medium and small screens 3, 2 and 1 element per column */
+@media (min-width: 60rem) and (max-width: 75rem) {
+  .card-container {
+    width: 33%;
+  }
+}
+
+@media (min-width: 45rem) and (max-width: 60rem) {
+  .card-container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 45rem) {
+  .card-container {
+    width: 100%;
+  }
+}

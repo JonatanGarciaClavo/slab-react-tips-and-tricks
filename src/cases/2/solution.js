@@ -1,7 +1,7 @@
 /**
  * Exercise 2
  *
- * What we tried to accomplish in this exercise it is build 2 HOC that help us with repetitive
+ * What we try to accomplish in this exercise is to build 2 HOC that help us with repetitive
  * behavior of our components. We need a component that will display a list of characters and
  * a button that will handle when display or not title in our list
  *

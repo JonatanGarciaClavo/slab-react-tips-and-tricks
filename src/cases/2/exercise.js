@@ -63,7 +63,7 @@ const ListWithTitle = withTitle(List);
 
 // 👁‍🗨 what we need here to accomplish following signature:
 //   <EnhancedList showTitle={isActive} title="Character list" />
-// 🔎 find a way to compose multiple HOCs and component to achieve it
+// 🔎 find a way to compose multiple HOCs and components to achieve it
 const EnhancedList = null;
 
 // 🏗 find a way with all HOCs and components to modify following code

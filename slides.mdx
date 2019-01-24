@@ -399,14 +399,18 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 ---
 
 <Appear>
-<code style={{fontSize: 20}}>[“Peugeot”, “Renault”, “Toyota”, “Bmw”, “Renault”, “Nissan”, “Mercedes”, “Toyota”]</code>
-<div>
-  <img style={{width: 800}} src='./src/assets/old-array.png'/>
-</div>
-<code style={{fontSize: 20, marginTop: 40}}>[“Peugeot”, “Renault”, “Toyota”, “Bmw”, “Renault”, “Nissan”, “Bmw”, “Toyota”]</code>
-<div>
-  <img style={{width: 800}} src='./src/assets/new-array.png'/>
-</div>
+  <code style={{ fontSize: 20 }}>
+    [“Peugeot”, “Renault”, “Toyota”, “Bmw”, “Renault”, “Nissan”, “Mercedes”, “Toyota”]
+  </code>
+  <div>
+    <img style={{ width: 800 }} src="./src/assets/old-array.png" />
+  </div>
+  <code style={{ fontSize: 20, marginTop: 40 }}>
+    [“Peugeot”, “Renault”, “Toyota”, “Bmw”, “Renault”, “Nissan”, “Bmw”, “Toyota”]
+  </code>
+  <div>
+    <img style={{ width: 800 }} src="./src/assets/new-array.png" />
+  </div>
 </Appear>
 
 ---
@@ -503,6 +507,7 @@ What you need to complete is how to transform/normalize your cart items to be ab
 ---
 
 ## Combine dispatch() calls using a single action
+
 <div style={{ marginTop: 80 }}>
   <img src="https://media.giphy.com/media/l4JzgkWgw5NvAq4aQ/giphy.gif" />
 </div>
@@ -529,10 +534,7 @@ What you need to complete is how to transform/normalize your cart items to be ab
   lang="javascript"
   showNumbers
   theme={vsDark}
-  steps={[
-    { range: [1, 6] },
-    { range: [8, 13] },
-  ]}
+  steps={[{ range: [1, 6] }, { range: [8, 13] }]}
 />
 
 ---
@@ -559,7 +561,7 @@ What you need to complete is how to transform/normalize your cart items to be ab
   theme={vsDark}
   steps={[
     { range: [1, 6] },
-    { range: [8, 13], notes: 'Both reducers listen for the same action type'  },
+    { range: [8, 13], notes: 'Both reducers listen for the same action type' },
   ]}
 />
 

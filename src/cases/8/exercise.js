@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
-import useTodosWithLocalStorage from './Solution/useTodosWithLocalStorage';
-import useDocumentTitle from './Solution/useDocumentTitle';
+import useTodosWithLocalStorage from './Exercise/useTodosWithLocalStorage';
+import useDocumentTitle from './Exercise/useDocumentTitle';
 
 import ThemeContext from './shared/ThemeContext';
 import NewTodo from './shared/NewTodo';

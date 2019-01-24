@@ -383,7 +383,26 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ## How does it works?
 
-// TODO: immutable data structure comparison and change.
+<div style={{ marginTop: 40 }}>
+  <img style={{width: 300}} src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/1200px-Trie_example.svg.png' />
+</div>
+<div style={{fontSize: 20, marginTop: 20}}>
+  <p>Structural sharing.</p>
+  <p>Trie, an ordered tree data structure.</p>
+</div>
+
+---
+
+<Appear>
+<code style={{fontSize: 20}}>[“Peugeot”, “Renault”, “Toyota”, “Bmw”, “Renault”, “Nissan”, “Mercedes”, “Toyota”]</code>
+<div>
+  <img style={{width: 800}} src='./src/assets/old-array.png'/>
+</div>
+<code style={{fontSize: 20, marginTop: 40}}>[“Peugeot”, “Renault”, “Toyota”, “Bmw”, “Renault”, “Nissan”, “Bmw”, “Toyota”]</code>
+<div>
+  <img style={{width: 800}} src='./src/assets/new-array.png'/>
+</div>
+</Appear>
 
 ---
 

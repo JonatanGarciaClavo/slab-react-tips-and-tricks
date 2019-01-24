@@ -11,15 +11,20 @@ import Container from './shared/Container';
 import Switch from './shared/Switch';
 
 function TodoList() {
+  // ℹ️ we use state to storage what could be new todo
   const [newTodo, setNewTodo] = useState('');
+  // ℹ️ we use state to storage theme
   const [theme, setTheme] = useState('dark');
+  // 🔎 check this custom hook for more details
   const [todos, { addTodo, deleteTodo, toggleTodo }] = useTodosWithLocalStorage([]);
+  // ℹ️ remember reselect and selectors? this is hooks way to do it
   const calculateIncompleteTodoCount = useMemo(
     () => todos => todos.reduce((acc, todo) => (!todo.completed ? acc + 1 : acc), 0),
     [todos],
   );
   const incompleteTodoCount = calculateIncompleteTodoCount(todos);
   const title = incompleteTodoCount ? `Todos (${incompleteTodoCount})` : 'Todos';
+  // 🔎 check this custom hook for more details
   useDocumentTitle(title);
   const handleNewSubmit = useCallback(e => {
     e.preventDefault();

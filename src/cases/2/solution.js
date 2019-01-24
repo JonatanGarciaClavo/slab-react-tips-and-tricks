@@ -1,7 +1,7 @@
 /**
  * Exercise 2
  *
- * What we tried to accomplish in this exercise it is build 2 HOC that help us with repetitive
+ * What we try to accomplish in this exercise is to build 2 HOC that help us with repetitive
  * behavior of our components. We need a component that will display a list of characters and
  * a button that will handle when display or not title in our list
  *
@@ -10,7 +10,7 @@
  *       and will propagate this flag and a callback to be able to modify this flag
  * 3) 🚦 Create HOC called branch, this will handle conditional component to be rendered depend on
  *       condition(more details bellow)
- * 4) 🏗 Ones you have all HOCs created you have to build different component to accomplish task
+ * 4) 🏗 Ones you have all HOCs created you have to build different component to accomplish the task
  *
  */
 import React from 'react';

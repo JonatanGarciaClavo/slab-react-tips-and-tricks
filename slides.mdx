@@ -94,7 +94,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 <ol>
   <li>🔎 Check and analyze code.</li>
   <li>👀 Check when click in both buttons how DOM is updated.</li>
-  <li>❌ Detect why when click first bottom all our list items get updated.</li>
+  <li>❌ Detect why when click first buttom all our list items get updated.</li>
   <li>✅ Fix problem and check again that DOM updates are right.</li>
   <li>❓ Why it was working for one button and it wasn't for the other?</li>
 </ol>
@@ -240,8 +240,8 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ## Exercise 3
 
-<div>This exercise is a bit different compared with the other ones, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix them.</div>
-<div style={{marginTop: 40}}><strong>🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉</strong></div>
+<div>This exercise is a bit different compared with the others, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix it.</div>
+<div style={{marginTop: 40}}><strong>🚨 Don't get too crazy, all of them should be pretty obvious, after what we learned before 😉</strong></div>
 
 ---
 
@@ -306,13 +306,18 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 ## React window
 
 <Appear>
-<div>Is a modern complete rewrite of React Virtualized</div>
-<div style={{marginTop: 40}}>👉 <a href="https://react-window.now.sh" target="_blank">react-window</a></div>
-<div style={{fontStyle: 'italic', marginTop: 40}}>
-  "I didn't try to solve as many problems or support as many use cases.
-  Instead I focused on making the package smaller and faster. 
-  I also put a lot of thought into making the API as beginner-friendly as possible."
-</div>
+  <div>Is a modern complete rewrite of React Virtualized</div>
+  <div style={{ marginTop: 40 }}>
+    👉{' '}
+    <a href="https://react-window.now.sh" target="_blank">
+      react-window
+    </a>
+  </div>
+  <div style={{ fontStyle: 'italic', marginTop: 40 }}>
+    "I didn't try to solve as many problems or support as many use cases. Instead I focused on
+    making the package smaller and faster. I also put a lot of thought into making the API as
+    beginner-friendly as possible."
+  </div>
 </Appear>
 
 ---
@@ -630,8 +635,9 @@ What you need to complete is how to transform/normalize your cart items to be ab
     <li>useCallback</li>
     <li>useMemo</li>
     <li>useRef</li>
-    <li>useImperativeMethods</li>
+    <li>useImperativeHandle</li>
     <li>useLayoutEffect</li>
+    <li>useDebugValue</li>
   </Appear>
 </ul>
 <a target="blank" href="https://reactjs.org/docs/hooks-reference.html">Hooks API Reference</a>
@@ -657,6 +663,14 @@ What you need to complete is how to transform/normalize your cart items to be ab
 # Demo
 
 ### Let's transform previous class into function component with hooks
+
+---
+
+## Exercise 7
+
+<div style={{fontSize: 30}}>👷‍ Refactor this class component to be function component with hooks</div>
+<div style={{fontSize: 30, marginTop: 20}}>ℹ️ Check all info about hooks 👉 <a href="https://reactjs.org/docs/hooks-intro.html">here</a></div>
+<div style={{fontSize: 30, marginTop: 20}}>📝 It is easier than you think so please 🙏 don't over complicate it 😉</div>
 
 ---
 
@@ -726,6 +740,9 @@ What you need to complete is how to transform/normalize your cart items to be ab
   </li>
   <li>
     <a href="https://youtu.be/LBzJFcZsPBQ">Help! My React app is slow!(video)</a>
+  </li>
+  <li>
+    <a href="https://reactjs.org/docs/reconciliation.html">Reconciliation</a>
   </li>
   <li>
     <a href="https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html">

@@ -93,10 +93,10 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 <ol>
   <li>🔎 Check and analyze code.</li>
-  <li>👀 Check when click in both buttons how DOM is updated.</li>
-  <li>❌ Detect why when click first buttom all our list items get updated.</li>
-  <li>✅ Fix problem and check again that DOM updates are right.</li>
-  <li>❓ Why it was working for one button and it wasn't for the other?</li>
+  <li>👀 Check how DOM is updated when clicking both buttons.</li>
+  <li>❌ Detect why all our list items get updated when clicking the first button.</li>
+  <li>✅ Fix the problem and check again that DOM updates are right.</li>
+  <li>❓ Why was it working for one button and not for the other?</li>
 </ol>
 
 ---
@@ -150,7 +150,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ## Exercise 2
 
-<p>What we try to accomplish in this exercise is to build 2 HOC that help us with repetitive behavior of our components.</p>
+<p>What we try to accomplish in this exercise is to build 2 HOCs that help us with repetitive behavior of our components.</p>
 <p>We need a component that will display a list of characters and a button that will handle when display or not title in our list.</p>
 
 ---
@@ -167,7 +167,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 <ul>
   <Appear>
-    <li>Reconciliation is how we call that action that decide when and how to re-render DOM.</li>
+    <li>Reconciliation is how we call the action that decides when and how to re-render DOM.</li>
     <li>Nobody wants to re-render things all time.</li>
     <li>Seriously, you don't want to re-render your components if their DOM nodes are huge.</li>
     <li>
@@ -178,7 +178,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ---
 
-## So how we could avoid unnecesary reconciliations?
+## So how can we avoid unnecesary reconciliations?
 
 <ul>
   <Appear>
@@ -266,7 +266,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ## But what if that's not an option?
 
-<div style={{ marginTop: 40 }}>... or small lists but components really big.</div>
+<div style={{ marginTop: 40 }}>... or small lists but the components are really big.</div>
 <a 
   style={{ marginTop: 40, display: 'block' }}
   href="https://bvaughn.github.io/react-virtualized/#/components/List" 
@@ -329,7 +329,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
   <ol>
     <li>📥 Import the required elements from the 'react-virtualized' library.</li>
     <li>
-      🏗 Recreate the list we actually have with the new virtualized component. Special attention for
+      🏗 Recreate the list we have with the new virtualized component. Pay special attention to
       the rowRenderer method.
     </li>
     <li>☝️ Replace the list for the new one in the main component.</li>
@@ -351,7 +351,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ---
 
-## Why inmmutable data structures?
+## Why immutable data structures?
 
 <div>Why should you care if JS doesn’t care?</div>
 
@@ -423,7 +423,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ---
 
-## What does 'derived Redux state' means?
+## What does 'derived Redux state' mean?
 
 Given a state, we need to apply to that state all business logic needed to be displayed in our components.
 
@@ -500,7 +500,7 @@ Given a state, we need to apply to that state all business logic needed to be di
 
 In this exercise we will work with selectors, for that let's build a shopping cart 🙌🏼.
 
-To build this cart we will have a reducer with all our cart items, you don't need to worried about that, is already done 😉.
+To build this cart we will have a reducer with all our cart items. You don't need to worry about that, it's already done 😉.
 
 What you need to complete is how to transform/normalize your cart items to be able to follow some rules/use cases.
 
@@ -851,7 +851,7 @@ What you need to complete is how to transform/normalize your cart items to be ab
 
 ---
 
-# Feeback
+# Feedback
 
 <div style={{ marginTop: 30 }}>
   <img height={350} src="https://media.giphy.com/media/Bkcls2eA8Fc6A/giphy.gif" />

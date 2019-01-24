@@ -13,7 +13,7 @@ import Switch from './shared/Switch';
 function Exercise() {
   // 📝 newTodo is a const but you need a way to update it each time user enter new todo into the input
   const newTodo = '';
-  // 📝 theme it is a fixed constant but we want our UI get updated when toggle it is clicked by user what we could do?
+  // 📝 theme it is a fixed constant but we want our UI get updated when toggle it is clicked by the user what we could do?
   const theme = 'dark';
   // 🔎 check comments inside of this custom hooks to know what it will be provided
   const [todos, { addTodo, deleteTodo, toggleTodo }] = useTodosWithLocalStorage([]);

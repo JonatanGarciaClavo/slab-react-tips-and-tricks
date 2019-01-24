@@ -10,7 +10,7 @@
  *       and will propagate this flag and a callback to be able to modify this flag
  * 3) 🚦 Create HOC called branch, this will handle conditional component to be rendered depend on
  *       condition(more details bellow)
- * 4) 🏗 Ones you have all HOCs created you have to build different component to accomplish task
+ * 4) 🏗 Ones you have all HOCs created you have to build different component to accomplish the task
  *
  */
 import React from 'react';

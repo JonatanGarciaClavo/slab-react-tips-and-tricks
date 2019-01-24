@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -70,16 +70,13 @@ const Slider = styled.span`
 `;
 
 export default function Switch({ id, checked, onChange }) {
+  const handleCheckChange = useCallback(e => {
+    onChange(e.target.checked);
+  });
   return (
     <Container>
       <Label>
-        <Input
-          type="checkbox"
-          id={id}
-          name={id}
-          checked={checked}
-          onChange={e => onChange(e.target.checked)}
-        />
+        <Input type="checkbox" id={id} name={id} checked={checked} onChange={handleCheckChange} />
         <Slider />
       </Label>
     </Container>

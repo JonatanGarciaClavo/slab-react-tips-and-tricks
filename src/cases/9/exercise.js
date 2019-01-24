@@ -7,7 +7,7 @@ import VehiclesList from './shared/components/VehiclesList';
 import Loader from './shared/components/Loader';
 import Error from './shared/components/Error';
 
-// ℹ️ uncomment this code ones you use it
+// ℹ️ un comment this code ones you use it
 // import { vehiclesFetchData } from './shared/state/vehicles/actions';
 // import { setFilter } from './shared/state/filters/actions';
 

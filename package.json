@@ -1,6 +1,6 @@
 {
-  "name": "slab-react-tips-and-trics",
-  "version": "0.1.0",
+  "name": "slab-react-tips-and-tricks",
+  "version": "1.1.0",
   "private": true,
   "devDependencies": {
     "eslint-plugin-prettier": "^3.0.0",

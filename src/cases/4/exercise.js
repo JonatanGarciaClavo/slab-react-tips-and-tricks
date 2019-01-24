@@ -10,6 +10,9 @@
  * 4) 🎖 Extra bonus points for using the previously created withToggle HOC to build a toggle system
  *    to switch between the two lists.
  *
+ * ❗️ Tip: Use the following values to optimize the new list visualization results =>
+ *    {width: 610, height: 500, rowHeight: 105}
+ *
  * 👉 Don't forget to check the documentation for more info
  *    https://github.com/bvaughn/react-virtualized/tree/master/docs#documentation
  */

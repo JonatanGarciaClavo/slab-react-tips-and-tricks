@@ -1,7 +1,7 @@
 /**
  * 👷‍ Refactor this class component to be function component with hooks
  * ℹ️ Check all info about hooks https://reactjs.org/docs/hooks-intro.html
- * 📝 Think in the easier solution don't over complicate it 😉
+ * 📝 It is easier than you think so please 🙏 don't over complicate it 😉
  */
 import React, { Component } from 'react';
 // 📝 import React, { useState, useEffect, useCallback } from 'react';
@@ -13,6 +13,7 @@ class Exercise extends Component {
     this.state = { level: 0, charging: false };
   }
   componentDidMount() {
+    // ℹ️ We need to register all battery events that we want to handle ones component is mounted
     navigator.getBattery().then(bat => {
       this.battery = bat;
       this.battery.addEventListener('levelchange', this.handleChange);
@@ -21,6 +22,7 @@ class Exercise extends Component {
     });
   }
   componentWillUnmount() {
+    // ℹ️ We need to un-register all battery events  ones component is unmounted
     this.battery.removeEventListener('levelchange', this.handleChange);
     this.battery.removeEventListener('chargingchange', this.handleChange);
   }

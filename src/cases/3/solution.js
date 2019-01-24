@@ -1,10 +1,10 @@
 /**
  * Exercise 3
  *
- * This exercise it is a bit different compared with other ones, in this case you need to apply all tips
+ * This exercise is a bit different compared with the others, in this case you need to apply all tips
  * and techniques learned before. That means you need to find and identify issues and try to fix it.
  *
- * 🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉
+ * 🚨 Don't get too crazy, all of them should be pretty obvious, after what we learned before 😉
  */
 import React from 'react';
 import { Box, Flex, Button, Text } from 'rebass';

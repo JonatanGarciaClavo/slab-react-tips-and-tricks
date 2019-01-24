@@ -2,11 +2,11 @@
  * Exercise 1
  *
  * 1) 🔎 Check and analyze code
- * 2) 👀 Check when click in both buttons how DOM it is updated
- * 3) ❌ Detect why when click first bottom all our list items get updated
- * 4) ✅ Fix problem and check again that DOM updates are right
- * 5) ❓ Why it was working for one button and it wasn't for the other?
- * Because in case to add item at end of the array means that key will be always new length of the array
+ * 2) 👀 Check how DOM is updated when clicking both buttons
+ * 3) ❌ Detect why all our list items get updated when clicking the first button
+ * 4) ✅ Fix the problem and check again that DOM updates are right
+ * 5) ❓ Why was it working for one button and not for the other?
+ * When we add an item at end of the array means that key will be always new length of the array
  * but as you could see that it is only valid for that case not for the first button 😉
  */
 

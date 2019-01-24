@@ -93,10 +93,10 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 <ol>
   <li>🔎 Check and analyze code.</li>
-  <li>👀 Check when click in both buttons how DOM is updated.</li>
-  <li>❌ Detect why when click first bottom all our list items get updated.</li>
-  <li>✅ Fix problem and check again that DOM updates are right.</li>
-  <li>❓ Why it was working for one button and it wasn't for the other?</li>
+  <li>👀 Check how DOM is updated when clicking both buttons.</li>
+  <li>❌ Detect why all our list items get updated when clicking the first button.</li>
+  <li>✅ Fix the problem and check again that DOM updates are right.</li>
+  <li>❓ Why was it working for one button and not for the other?</li>
 </ol>
 
 ---
@@ -150,7 +150,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ## Exercise 2
 
-<p>What we try to accomplish in this exercise is to build 2 HOC that help us with repetitive behavior of our components.</p>
+<p>What we try to accomplish in this exercise is to build 2 HOCs that help us with repetitive behavior of our components.</p>
 <p>We need a component that will display a list of characters and a button that will handle when display or not title in our list.</p>
 
 ---
@@ -167,7 +167,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 <ul>
   <Appear>
-    <li>Reconciliation is how we call that action that decide when and how to re-render DOM.</li>
+    <li>Reconciliation is how we call the action that decides when and how to re-render DOM.</li>
     <li>Nobody wants to re-render things all time.</li>
     <li>Seriously, you don't want to re-render your components if their DOM nodes are huge.</li>
     <li>
@@ -178,7 +178,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ---
 
-## So how we could avoid unnecesary reconciliations?
+## So how can we avoid unnecesary reconciliations?
 
 <ul>
   <Appear>
@@ -240,8 +240,8 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ## Exercise 3
 
-<div>This exercise is a bit different compared with the other ones, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix them.</div>
-<div style={{marginTop: 40}}><strong>🚨 Don't get too crazy, all of them should be pretty obvious after what we learned before 😉</strong></div>
+<div>This exercise is a bit different compared with the others, in this case you need to apply all tips and techniques learned before. That means you need to find and identify issues and try to fix it.</div>
+<div style={{marginTop: 40}}><strong>🚨 Don't get too crazy, all of them should be pretty obvious, after what we learned before 😉</strong></div>
 
 ---
 
@@ -266,7 +266,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ## But what if that's not an option?
 
-<div style={{ marginTop: 40 }}>... or small lists but components really big.</div>
+<div style={{ marginTop: 40 }}>... or small lists but the components are really big.</div>
 <a 
   style={{ marginTop: 40, display: 'block' }}
   href="https://bvaughn.github.io/react-virtualized/#/components/List" 
@@ -306,13 +306,18 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 ## React window
 
 <Appear>
-<div>Is a modern complete rewrite of React Virtualized</div>
-<div style={{marginTop: 40}}>👉 <a href="https://react-window.now.sh" target="_blank">react-window</a></div>
-<div style={{fontStyle: 'italic', marginTop: 40}}>
-  "I didn't try to solve as many problems or support as many use cases.
-  Instead I focused on making the package smaller and faster. 
-  I also put a lot of thought into making the API as beginner-friendly as possible."
-</div>
+  <div>Is a modern complete rewrite of React Virtualized</div>
+  <div style={{ marginTop: 40 }}>
+    👉{' '}
+    <a href="https://react-window.now.sh" target="_blank">
+      react-window
+    </a>
+  </div>
+  <div style={{ fontStyle: 'italic', marginTop: 40 }}>
+    "I didn't try to solve as many problems or support as many use cases. Instead I focused on
+    making the package smaller and faster. I also put a lot of thought into making the API as
+    beginner-friendly as possible."
+  </div>
 </Appear>
 
 ---
@@ -324,8 +329,8 @@ import { FullScreenCode } from 'mdx-deck/layouts';
   <ol>
     <li>📥 Import the required elements from the 'react-virtualized' library.</li>
     <li>
-      🏗 Recreate the list we actually have with the new virtualized component. Special attention for
-      the rowRenderer method.
+      🏗 Recreate the list we have with the new virtualized component. Pay special attention to the
+      rowRenderer method.
     </li>
     <li>☝️ Replace the list for the new one in the main component.</li>
     <li>
@@ -346,7 +351,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ---
 
-## Why inmmutable data structures?
+## Why immutable data structures?
 
 <div>Why should you care if JS doesn’t care?</div>
 
@@ -383,7 +388,30 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ## How does it works?
 
-// TODO: immutable data structure comparison and change.
+<div style={{ marginTop: 40 }}>
+  <img style={{width: 300}} src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/1200px-Trie_example.svg.png' />
+</div>
+<div style={{fontSize: 20, marginTop: 20}}>
+  <p>Structural sharing.</p>
+  <p>Trie, an ordered tree data structure.</p>
+</div>
+
+---
+
+<Appear>
+  <code style={{ fontSize: 20 }}>
+    [“Peugeot”, “Renault”, “Toyota”, “Bmw”, “Renault”, “Nissan”, “Mercedes”, “Toyota”]
+  </code>
+  <div>
+    <img style={{ width: 800 }} src="./src/assets/old-array.png" />
+  </div>
+  <code style={{ fontSize: 20, marginTop: 40 }}>
+    [“Peugeot”, “Renault”, “Toyota”, “Bmw”, “Renault”, “Nissan”, “Bmw”, “Toyota”]
+  </code>
+  <div>
+    <img style={{ width: 800 }} src="./src/assets/new-array.png" />
+  </div>
+</Appear>
 
 ---
 
@@ -395,7 +423,7 @@ import { FullScreenCode } from 'mdx-deck/layouts';
 
 ---
 
-## What does 'derived Redux state' means?
+## What does 'derived Redux state' mean?
 
 Given a state, we need to apply to that state all business logic needed to be displayed in our components.
 
@@ -472,9 +500,70 @@ Given a state, we need to apply to that state all business logic needed to be di
 
 In this exercise we will work with selectors, for that let's build a shopping cart 🙌🏼.
 
-To build this cart we will have a reducer with all our cart items, you don't need to worried about that, is already done 😉.
+To build this cart we will have a reducer with all our cart items. You don't need to worry about that, it's already done 😉.
 
 What you need to complete is how to transform/normalize your cart items to be able to follow some rules/use cases.
+
+---
+
+## Combine dispatch() calls using a single action
+
+<div style={{ marginTop: 80 }}>
+  <img src="https://media.giphy.com/media/l4JzgkWgw5NvAq4aQ/giphy.gif" />
+</div>
+
+---
+
+<CodeSurfer
+  title="Multiple dispatch() calls"
+  code={require('!raw-loader!./slide-examples/multiple-dispatch.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 6] },
+    { range: [8, 13], notes: '🤔 Multiple dispatch() calls cause multiple renders() 🤔' },
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="1 on 1 action to reducer"
+  code={require('!raw-loader!./slide-examples/reducers-1-on-1.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[{ range: [1, 6] }, { range: [8, 13] }]}
+/>
+
+---
+
+<CodeSurfer
+  title=""
+  code={require('!raw-loader!./slide-examples/combined-actions.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 6] },
+    { range: [8, 11], notes: 'Combine dispatch() calls using a single action!' },
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="1 to many action to reducers"
+  code={require('!raw-loader!./slide-examples/reducers-1-to-many.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 6] },
+    { range: [8, 13], notes: 'Both reducers listen for the same action type' },
+  ]}
+/>
 
 ---
 
@@ -611,8 +700,9 @@ What you need to complete is how to transform/normalize your cart items to be ab
     <li>useCallback</li>
     <li>useMemo</li>
     <li>useRef</li>
-    <li>useImperativeMethods</li>
+    <li>useImperativeHandle</li>
     <li>useLayoutEffect</li>
+    <li>useDebugValue</li>
   </Appear>
 </ul>
 <a target="blank" href="https://reactjs.org/docs/hooks-reference.html">Hooks API Reference</a>
@@ -638,6 +728,14 @@ What you need to complete is how to transform/normalize your cart items to be ab
 # Demo
 
 ### Let's transform previous class into function component with hooks
+
+---
+
+## Exercise 7
+
+<div style={{fontSize: 30}}>👷‍ Refactor this class component to be function component with hooks</div>
+<div style={{fontSize: 30, marginTop: 20}}>ℹ️ Check all info about hooks 👉 <a href="https://reactjs.org/docs/hooks-intro.html">here</a></div>
+<div style={{fontSize: 30, marginTop: 20}}>📝 It is easier than you think so please 🙏 don't over complicate it 😉</div>
 
 ---
 
@@ -709,6 +807,9 @@ What you need to complete is how to transform/normalize your cart items to be ab
     <a href="https://youtu.be/LBzJFcZsPBQ">Help! My React app is slow!(video)</a>
   </li>
   <li>
+    <a href="https://reactjs.org/docs/reconciliation.html">Reconciliation</a>
+  </li>
+  <li>
     <a href="https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html">
       Introducing the React Profiler
     </a>
@@ -750,7 +851,7 @@ What you need to complete is how to transform/normalize your cart items to be ab
 
 ---
 
-# Feeback
+# Feedback
 
 <div style={{ marginTop: 30 }}>
   <img height={350} src="https://media.giphy.com/media/Bkcls2eA8Fc6A/giphy.gif" />

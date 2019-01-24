@@ -1,7 +1,7 @@
 /**
  * 👷‍ Refactor this class component to be function component with hooks
  * ℹ️ Check all info about hooks https://reactjs.org/docs/hooks-intro.html
- * 📝 Think in the easier solution don't over complicate it 😉
+ * 📝 It is easier than you think so please 🙏 don't over complicate it 😉
  */
 import React, { useState, useEffect, useCallback } from 'react';
 import Battery from '../../components/Battery';
@@ -9,11 +9,11 @@ import Battery from '../../components/Battery';
 function Solution() {
   // 📝 useState to store our battery status
   const [battery, setBattery] = useState({ level: 0, charging: false });
-  // 📝 remember to useCallback to memonize your functions
+  // 📝 remember to useCallback to memoize your functions
   const handleChange = useCallback(({ target: { level, charging } }) =>
     setBattery({ level, charging }),
   );
-  // 📝 handle in useEffect all listeners and modify our state when it is needed
+  // 📝 handle inside of useEffect all listeners and modify our state when it is needed
   useEffect(() => {
     let battery;
     navigator.getBattery().then(bat => {
@@ -26,7 +26,7 @@ function Solution() {
       battery.removeEventListener('levelchange', handleChange);
       battery.removeEventListener('chargingchange', handleChange);
     };
-    // 🚨 tricky part if we don't put [] as second parameter we will get called to this each time it renders 😱
+    // 🚨 tricky part 🚨 if we don't put [] as second parameter we will get called to this each time it renders 😱
   }, []);
 
   return (

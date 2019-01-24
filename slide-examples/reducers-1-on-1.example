@@ -1,0 +1,13 @@
+const selectedId = (state = -1, action) => {
+  if (action.type === 'SET_SELECTED') {
+    state = action.payload;
+  }
+  return state;
+}
+
+const color = (state = null, action) => {
+  if (action.type === 'SET_COLOR') {
+    state = action.payload;
+  }
+  return state;
+}

@@ -2,8 +2,8 @@
  * Exercise
  *
  * In this exercise we will work with selectors, for that let's build a shopping cart 🙌🏼.
- * To build this cart we will have a reducer with all our cart items, you don't need to
- * worried about that, it is already done 😉. What you need to complete it is how to
+ * To build this cart we will have a reducer with all our cart items. You don't need to
+ * worry about that, it's already done 😉. What you need to complete it is how to
  * transform/normalize your cart items to be able to following some rules/use case.
  */
 import React from 'react';

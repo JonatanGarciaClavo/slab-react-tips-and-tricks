@@ -4,11 +4,14 @@
  * The purpose of this exercise is to implement a virtualized version for the list that we display.
  *
  * 1) 📥 Import the required elements from the 'react-virtualized' library.
- * 2) 🏗 Recreate the list we actually have with the new virtualized component. Special attention for
+ * 2) 🏗 Recreate the list we have with the new virtualized component. Pay special attention to
  *    the rowRenderer method.
  * 3) ☝️ Replace the list for the new one in the main component.
  * 4) 🎖 Extra bonus points for using the previously created withToggle HOC to build a toggle system
  *    to switch between the two lists.
+ *
+ * ❗️ Tip: Use the following values to optimize the new list visualization results =>
+ *    {width: 610, height: 500, rowHeight: 105}
  *
  * 👉 Don't forget to check the documentation for more info
  *    https://github.com/bvaughn/react-virtualized/tree/master/docs#documentation

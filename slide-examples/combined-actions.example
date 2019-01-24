@@ -1,0 +1,11 @@
+const setSelected = (id) => (
+  {type: 'SET_SELECTED', payload: id}
+);
+const setColor = (color) => (
+  {type: 'SET_COLOR', payload: color}
+);
+
+const markUnread = (id) => ({
+    type: 'MARK_UNREAD', 
+    payload: {id, color: 'blue'},
+});

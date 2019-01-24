@@ -1,0 +1,13 @@
+const selectedId = (state = -1, action) => {
+  if (action.type === 'MARK_UNREAD') {
+    state = action.payload.id;
+  }
+  return state;
+}
+
+const color = (state = null, action) => {
+  if (action.type === 'MARK_UNREAD') {
+    state = action.payload.color;
+  }
+  return state;
+}

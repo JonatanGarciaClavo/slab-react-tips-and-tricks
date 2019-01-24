@@ -502,6 +502,69 @@ What you need to complete is how to transform/normalize your cart items to be ab
 
 ---
 
+## Combine dispatch() calls using a single action
+<div style={{ marginTop: 80 }}>
+  <img src="https://media.giphy.com/media/l4JzgkWgw5NvAq4aQ/giphy.gif" />
+</div>
+
+---
+
+<CodeSurfer
+  title="Multiple dispatch() calls"
+  code={require('!raw-loader!./slide-examples/multiple-dispatch.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 6] },
+    { range: [8, 13], notes: '🤔 Multiple dispatch() calls cause multiple renders() 🤔' },
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="1 on 1 action to reducer"
+  code={require('!raw-loader!./slide-examples/reducers-1-on-1.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 6] },
+    { range: [8, 13] },
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title=""
+  code={require('!raw-loader!./slide-examples/combined-actions.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 6] },
+    { range: [8, 11], notes: 'Combine dispatch() calls using a single action!' },
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="1 to many action to reducers"
+  code={require('!raw-loader!./slide-examples/reducers-1-to-many.example')}
+  lang="javascript"
+  showNumbers
+  theme={vsDark}
+  steps={[
+    { range: [1, 6] },
+    { range: [8, 13], notes: 'Both reducers listen for the same action type'  },
+  ]}
+/>
+
+---
+
 # React Profiler
 
 <div style={{ marginTop: 80 }}>

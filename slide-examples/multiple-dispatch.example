@@ -1,0 +1,13 @@
+const setSelected = (id) => (
+  {type: 'SET_SELECTED', payload: id}
+);
+const setColor = (color) => (
+  {type: 'SET_COLOR', payload: color}
+);
+
+const markUnread = (id) => (
+  (dispatch) => {
+    dispatch(setSelected(id));
+    dispatch(setColor('blue'));
+  }
+);

@@ -20,8 +20,10 @@ import Error from './shared/components/Error';
 const DevCase = () => {
   const error = false;
   const loading = true;
+  const handleFilterChange = (id, value) => {
+    console.log(id, value);
+  };
   const filtersSettings = [];
-  const handleFilterChange = () => {};
   const vehiclesFiltered = [];
 
   return (

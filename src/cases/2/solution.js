@@ -40,9 +40,9 @@ const withToggle = (Component, isActive = false) =>
       isActive,
     };
     toggle = () => {
-      this.setState({
-        isActive: !this.state.isActive,
-      });
+      this.setState(prevState => ({
+        isActive: !prevState.isActive,
+      }));
     };
     render() {
       return <Component {...this.props} toggle={this.toggle} isActive={this.state.isActive} />;

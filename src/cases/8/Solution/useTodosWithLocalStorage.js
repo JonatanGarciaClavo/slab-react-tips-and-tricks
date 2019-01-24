@@ -33,12 +33,9 @@ export default function(defaultValue) {
     }
   }, useMemo(initialValue, []));
   // 🔎 we use effect here to be able to add into local storage all our todo changes
-  useEffect(
-    () => {
-      window.localStorage.setItem(TODOS_LOCAL_STORAGE_KEY, JSON.stringify(todos));
-    },
-    [todos],
-  );
+  useEffect(() => {
+    window.localStorage.setItem(TODOS_LOCAL_STORAGE_KEY, JSON.stringify(todos));
+  }, [todos]);
   // 🏗 create all actions that will be used in our component
   const addTodo = newTodo =>
     dispatch({

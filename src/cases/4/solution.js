@@ -52,8 +52,8 @@ const VirtualizedList = ({ personas }) => (
       rowCount={personas.length}
       rowHeight={105}
       // ❗️rowRenderer function will determine the composition of the different rows in the list
-      rowRenderer={({ index, style }) => (
-        <ListItem key={index} persona={personas[index]} style={style} />
+      rowRenderer={({ key, index, style }) => (
+        <ListItem key={key} persona={personas[index]} style={style} />
       )}
       width={610}
     />
